@@ -35,5 +35,13 @@ $f3->route('GET|POST /login', function($f3) {
    echo $template->render("views/login.html");
 });
 
+// define live board route
+$f3->route('GET /live', function($f3) {
+    $f3->set("title", "Live Board");
+
+    $template = new Template();
+    echo $template->render("views/live.html");
+});
+
 // run fat free
 $f3->run();
