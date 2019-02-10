@@ -1,0 +1,12 @@
+{
+  "name": "cleanogr/328/final-project",
+  "authors": [
+    {
+      "name": "Celine Leano",
+      "email": "cemleano@gmail.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
