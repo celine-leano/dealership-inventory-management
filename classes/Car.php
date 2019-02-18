@@ -12,7 +12,6 @@ class Car
 {
     //fields
     private $_stockNumber;
-    private $type;
     private $year;
     private $make;
     private $model;
@@ -27,10 +26,9 @@ class Car
      * @param $model
      * @param $color
      */
-    public function __construct($_stockNumber, $type, $year, $make, $model, $color)
+    public function __construct($_stockNumber, $year, $make, $model, $color)
     {
         $this->setStockNumber($_stockNumber);
-        $this->setType($type);
         $this->setYear($year);
         $this->setMake($make);
         $this->setModel($model);
@@ -54,24 +52,6 @@ class Car
     public function setStockNumber($stockNumber): void
     {
         $this->_stockNumber = $stockNumber;
-    }
-
-    /**
-     * Getter for vehicle type
-     * @return $type
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Setter for vehicle type.
-     * @param  $type
-     */
-    public function setType($type): void
-    {
-        $this->type = $type;
     }
 
     /**
