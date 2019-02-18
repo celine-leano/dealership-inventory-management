@@ -19,6 +19,13 @@ $f3 = Base::instance();
 // turn on Fat-Free error reporting
 $f3->set('DEBUG', 3);
 
+// department array
+$f3->set("departments", array("detail" => "Detail", "inspection" => "Inspection",
+    "inventoried" => "Inventoried", "photo-area" => "Photo Area", "paint" => "Paint",
+    "reconditioning" => "Reconditioning", "ready-for-sale" => "Ready For Sale",
+    "sales" => "Sales", "service" => "Service", "sold" => "Sold",
+    "waiting-for-parts" => "Waiting For Parts", "wash" => "Wash", "wholesale" =>"Wholesale"));
+
 // define a default route
 $f3->route('GET|POST /', function($f3) {
     $f3->set("title", "Inventory Management");
