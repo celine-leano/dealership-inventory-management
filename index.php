@@ -21,7 +21,7 @@ $f3->set('DEBUG', 3);
 
 // define a default route
 $f3->route('GET|POST /', function($f3) {
-    $f3->set("title", "Key Management");
+    $f3->set("title", "Inventory Management");
 
     $template = new Template();
     echo $template->render("views/home.html");
@@ -35,12 +35,44 @@ $f3->route('GET|POST /login', function($f3) {
    echo $template->render("views/login.html");
 });
 
+// define route for input stock number after logging in
+$f3->route('GET|POST /stock', function($f3) {
+    $f3->set("title", "Enter Stock Number");
+
+    $template = new Template();
+    echo $template->render("views/stock.html");
+});
+
 // define live board route
 $f3->route('GET /live', function($f3) {
     $f3->set("title", "Live Board");
 
     $template = new Template();
     echo $template->render("views/live.html");
+});
+
+// define route to admin login
+$f3->route('GET|POST /admin', function($f3) {
+    $f3->set("title", "Admin Login");
+
+    $template = new Template();
+    echo $template->render("views/admin-login.html");
+});
+
+// define route to admin tools
+$f3->route('GET|POST /admin/tools', function($f3) {
+    $f3->set("title", "Admin Tools");
+
+    $template = new Template();
+    echo $template->render("views/admin-tools.html");
+});
+
+// define route to admin add car
+$f3->route('GET|POST /admin/add', function($f3) {
+    $f3->set("title", "Admin - Add a Vehicle");
+
+    $template = new Template();
+    echo $template->render("views/admin-add.html");
 });
 
 // run fat free
