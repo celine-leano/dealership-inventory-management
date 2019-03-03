@@ -1,5 +1,4 @@
 <?php
-	
 	/**
 	 * Class CarServices used to track services done  to Car objects.
 	 *
@@ -7,9 +6,9 @@
 	 * @autor   Adolfo Gonzalez
 	 * @version 1.0
 	 *
-	 * File: CarServices.php
+	 * File: CarServiceType.php
 	 */
-	class CarServices extends Car
+	class CarService extends Car
 	{
 		//fields
 		private $serviceType;
@@ -66,5 +65,4 @@
 			$this -> price = $price;
 			return $this;
 		}
-		
 	}
