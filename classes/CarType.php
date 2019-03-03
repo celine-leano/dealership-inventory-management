@@ -11,7 +11,7 @@
 	 */
 	class CarType extends Car
 	{
-		
+		//fields
 		private $_type;
 		private $_doors;
 		private $_cylinders;
