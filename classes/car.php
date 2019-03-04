@@ -1,22 +1,21 @@
 <?php
-	
 	/**
 	 * This is the main car class used to create an Inventory Management System.
 	 *
-	 * @autor   Celine Leano
-	 * @autor   Adolfo Gonzalez
+	 * @author   Celine Leano
+	 * @author   Adolfo Gonzalez
 	 * @version 1.0
 	 *
-	 * File: Car.php
+	 * File: car.php
 	 */
 	class Car
 	{
 		//fields
 		private $_stockNumber;
-		private $year;
-		private $make;
-		private $model;
-		private $color;
+		private $_year;
+		private $_make;
+		private $_model;
+		private $_status;
 		
 		/**
 		 * This is the constructor for the car class.
@@ -26,15 +25,15 @@
 		 * @param $year
 		 * @param $make
 		 * @param $model
-		 * @param $color
+		 * @param $status
 		 */
-		public function __construct($_stockNumber, $year, $make, $model, $color)
+		public function __construct($stockNumber, $year, $make, $model, $status)
 		{
-			$this -> setStockNumber($_stockNumber);
-			$this -> setYear($year);
-			$this -> setMake($make);
-			$this -> setModel($model);
-			$this -> setColor($color);
+			$this->_setStockNumber($stockNumber);
+			$this->_setYear($year);
+			$this->_setMake($make);
+			$this->_setModel($model);
+			$this->_setColor($status);
 			
 		}
 		
@@ -45,7 +44,7 @@
 		 */
 		public function getStockNumber()
 		{
-			return $this -> _stockNumber;
+			return $this->_stockNumber;
 		}
 		
 		/**
@@ -53,9 +52,9 @@
 		 *
 		 * @param $stockNumber
 		 */
-		public function setStockNumber($stockNumber): void
+		public function setStockNumber($stockNumber)
 		{
-			$this -> _stockNumber = $stockNumber;
+			$this->_stockNumber = $stockNumber;
 		}
 		
 		/**
@@ -65,7 +64,7 @@
 		 */
 		public function getYear()
 		{
-			return $this -> year;
+			return $this->_year;
 		}
 		
 		/**
@@ -73,9 +72,9 @@
 		 *
 		 * @param $year
 		 */
-		public function setYear($year): void
+		public function setYear($year)
 		{
-			$this -> year = $year;
+			$this->_year = $year;
 		}
 		
 		/**
@@ -86,7 +85,7 @@
 		 */
 		public function getMake()
 		{
-			return $this -> make;
+			return $this->_make;
 		}
 		
 		/**
@@ -94,9 +93,9 @@
 		 *
 		 * @param $make
 		 */
-		public function setMake($make): void
+		public function setMake($make)
 		{
-			$this -> make = $make;
+			$this->_make = $make;
 		}
 		
 		/**
@@ -106,7 +105,7 @@
 		 */
 		public function getModel()
 		{
-			return $this -> model;
+			return $this->_model;
 		}
 		
 		/**
@@ -114,9 +113,9 @@
 		 *
 		 * @param $model
 		 */
-		public function setModel($model): void
+		public function setModel($model)
 		{
-			$this -> model = $model;
+			$this->_model = $model;
 		}
 		
 		/**
@@ -124,19 +123,19 @@
 		 *
 		 * @return $color
 		 */
-		public function getColor()
+		public function getStatus()
 		{
-			return $this -> color;
+			return $this->_status;
 		}
 		
 		/**
 		 * Setter to set vehicle color.
 		 *
-		 * @param $color
+		 * @param $status
 		 */
-		public function setColor($color): void
+		public function setStatus($status)
 		{
-			$this -> color = $color;
+			$this->_status = $status;
 		}
 		
 	}
