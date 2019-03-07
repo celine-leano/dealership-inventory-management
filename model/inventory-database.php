@@ -47,7 +47,7 @@
 	
 	//Add  New Car
 	/**
-	 * This method creates a new car object with the given parametes
+	 * This method creates a new car object with the given parameters.
 	 *
 	 * @param $stock
 	 * @param $make
@@ -86,6 +86,8 @@
 	
 	//get all cars
 	/**
+	 * This method returns all cars in the database.
+	 *
 	 * @return mixed
 	 */
 	function getCars()
