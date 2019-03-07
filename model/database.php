@@ -25,7 +25,7 @@
 	 ***************************************************************************
 	 */
 	//Connect to Inventory Database
-	require_once('/home/agonzale/config.php');
+	require_once('/home/cleanogr/config.php');
 	
 	/**
 	 * This method connect to the inventory database.
@@ -59,13 +59,13 @@
 	 *
 	 * @return bool
 	 */
-	function addCar($stock,$make,$model,$year,$updatedBy,$timeStamp,$notes)
+	function addCar($stock,$make,$model,$year,$updatedBy,$notes)
 	{
 		global $dbh;
 
 		//1. define query
-		$sql="INSERT INTO inventory(stock, make, model, year, updatedBy, timestamp, notes) VALUES(:stock, :make, :model,
-										:year, :updatedBy, :timestamp, :notes)";
+		$sql="INSERT INTO inventory(stock, make, model, year, updatedBy, notes) VALUES(:stock, :make, :model,
+										:year, :updatedBy, :notes)";
 		
 		//2. prepare the statement
 		$statement=$dbh->prepare($sql);
@@ -76,7 +76,6 @@
 		$statement->bindParam(':model',$model,PDO::PARAM_STR);
 		$statement->bindParam(':year',$year,PDO::PARAM_STR);
 		$statement->bindParam(':updatedBy',$updatedBy,PDO::PARAM_STR);
-		$statement->bindParam(':timestamp',$timestamp,PDO::PARAM_STR);
 		$statement->bindParam(':notes',$notes,PDO::PARAM_STR);
 		
 		//4. execute
