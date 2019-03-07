@@ -27,8 +27,6 @@
 	//Connect to Inventory Database
 	require_once('/home/agonzale/config.php');
 	
-	class Database
-	{
 		function connect()
 		{
 			try{
@@ -47,7 +45,7 @@
 		{
 			global $dbh;
 			//connect to database
-			$dbh=$this->connect();
+			$dbh->connect();
 			//1. define query
 			$sql="INSERT INTO inventory(stock, make, model, year, updatedBy, timestamp, notes) VALUES(:stock, :make, :model,
 										:year, :updatedBy, :timestamp, :notes)";
@@ -73,7 +71,7 @@
 		{
 			//1. connect to database
 			global $dbh;
-			$dbh=$this->connect();
+			$dbh->connect();
 			
 			//2. define query
 			$sql="SELECT * FROM inventory";//maybe group by status or date
@@ -96,7 +94,7 @@
 		{
 			//1. connect to database
 			global $dbh;
-			$dbh=$this->connect();
+			$dbh->connect();
 			
 			//2. define query
 			$sql="SELECT * FROM inventory  WHERE stock = '$stock'";
@@ -119,7 +117,7 @@
 		{
 			//1. connect to database
 			global $dbh;
-			$dbh=$this->connect();
+			$dbh->connect();
 			
 			//2. define query
 			$sql="UPDATE  inventory SET status = '$status' WHERE stock = '$stock'";
@@ -136,7 +134,7 @@
 		{
 			//1. connect to database
 			global $dbh;
-			$dbh=$this->connect();
+			$dbh->connect();
 			
 			//2. define query
 			$sql="UPDATE  inventory SET notes = '$notes' WHERE stock = '$stock'";
@@ -153,7 +151,7 @@
 		{
 			//1. connect to database
 			global $dbh;
-			$dbh=$this->connect();
+			$dbh->connect();
 			
 			//2. define query
 			$sql="DELETE FROM  inventory  WHERE stock = '$stock'";
@@ -165,4 +163,3 @@
 			return $statement->execute();
 			
 		}
-	}
