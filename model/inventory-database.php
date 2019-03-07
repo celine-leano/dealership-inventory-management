@@ -29,6 +29,7 @@
 	
 	/**
 	 * This method connect to the inventory database.
+	 *
 	 * @return bool|\PDO
 	 */
 	function connect()
@@ -47,6 +48,7 @@
 	//Add  New Car
 	/**
 	 * This method creates a new car object with the given parametes
+	 *
 	 * @param $stock
 	 * @param $make
 	 * @param $model
@@ -111,6 +113,7 @@
 	//Get Car Info/Status
 	/**
 	 * This method retrives a car with a given stock number.
+	 *
 	 * @param $stock
 	 *
 	 * @return mixed
@@ -139,6 +142,8 @@
 	
 	//Update Car Status
 	/**
+	 * This method uptates the status of a car given a stock number.
+	 *
 	 * @param $stock
 	 * @param $status
 	 *
@@ -162,6 +167,8 @@
 	}
 	
 	/**
+	 * This method updates notes given a stock number.
+	 *
 	 * @param $stock
 	 * @param $notes
 	 *
@@ -185,6 +192,8 @@
 	
 	//Remove Car
 	/**
+	 * This method removes a car from the database given a stock number.
+	 *
 	 * @param $stock
 	 *
 	 * @return bool
