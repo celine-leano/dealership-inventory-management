@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 require_once('vendor/autoload.php');
 
 //Connect to DB
-require 'model/database.php';
+require ('model/database.php');
 $dbh = connect();
 if (!$dbh) { //don't go any further if we can't connect to the database
     exit;
@@ -44,6 +44,9 @@ $f3->route('GET|POST /', function ($f3) {
 // define login route
 $f3->route('GET|POST /login', function ($f3) {
     $f3->set("title", "Employee Login");
+
+    // validate login credentials
+    require("model/employee-validation.php");
 
     $template = new Template();
     echo $template->render("views/login.html");
