@@ -30,7 +30,6 @@
 	 */
 	// Connect to Inventory Database
 	require_once('/home/agonzale/config.php');
-	
 	/**
 	 * This method connect to the inventory database.
 	 *
@@ -40,7 +39,7 @@
 	{
 		try{
 			//Instantiate a db object
-			$dbh = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
+			$dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
 			return $dbh;
 		}
 		catch(PDOException $ex){
@@ -48,5 +47,6 @@
 			return FALSE;
 		}
 	}
+
 	//require validation
-	require '../model/validation.php';
+	require_once('model/validation.php');

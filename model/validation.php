@@ -5,9 +5,7 @@
 	 * 328/final-project/validation.php
 	 * Fat-Free Routing
 	 */
-	
 	//validation page
-	
 	//Login
 	/**
 	 * @param $username
@@ -15,7 +13,7 @@
 	 *
 	 * @return mixed
 	 */
-	function login($username,$password)
+	function login($username, $password)
 	{
 		global $dbh;
 		//1. Define query
@@ -23,17 +21,15 @@
 		//2. Prepare statement
 		$statement = $dbh -> prepare($sql);
 		//execute
-		$statement -> execute();
+		$statement -> execute(['password']);
 		//store result in new variable
-		$user = $statement -> fetch();
-		
-		if($user && password_verify($password,$user)){
+		$verifiedPassword = $statement -> fetch();
+		if($password == $verifiedPassword){
 			return $valid = "valid";
 		}
-		
 		return $invalid = "invalid";
 	}
-	
+
 	// Add New Car
 	/**
 	 * This method creates a new car object with the given parameters.
@@ -46,28 +42,24 @@
 	 *
 	 * @return bool
 	 */
-	function addCar($stock,$make,$model,$year,$status)
+	function addCar($stock, $make, $model, $year, $status)
 	{
 		global $dbh;
-		
 		//1. define query
 		$sql = "INSERT INTO inventory(stock, make, model, year, status) VALUES(:stock, :make, :model,
 										:year, :updatedBy, :status)";
-		
 		//2. prepare the statement
 		$statement = $dbh -> prepare($sql);
-		
 		//3. bind parameters
-		$statement -> bindParam(':stock',$stock,PDO::PARAM_STR);
-		$statement -> bindParam(':make',$make,PDO::PARAM_STR);
-		$statement -> bindParam(':model',$model,PDO::PARAM_STR);
-		$statement -> bindParam(':year',$year,PDO::PARAM_STR);
-		$statement -> bindParam(':status',$status,PDO::PARAM_STR);
-		
+		$statement -> bindParam(':stock', $stock, PDO::PARAM_STR);
+		$statement -> bindParam(':make', $make, PDO::PARAM_STR);
+		$statement -> bindParam(':model', $model, PDO::PARAM_STR);
+		$statement -> bindParam(':year', $year, PDO::PARAM_STR);
+		$statement -> bindParam(':status', $status, PDO::PARAM_STR);
 		//4. execute
 		return $statement -> execute();
 	}
-	
+
 	//get all cars
 	/**
 	 * This method returns all cars in the database.
@@ -78,23 +70,18 @@
 	{
 		//1. connect to database
 		global $dbh;
-		
 		//2. define query
 		$sql = "SELECT * FROM inventory";//maybe group by status or date
-		
 		//3. prepare statement
 		$statement = $dbh -> prepare($sql);
-		
 		//4. execute statement
 		$statement -> execute();
-		
 		//get results
 		$results = $statement -> fetch(PDO::FETCH_ASSOC);
-		
 		//return results
 		return $results;
 	}
-	
+
 	//Get Car Info/Status
 	/**
 	 * This method retrives a car with a given stock number.
@@ -106,23 +93,18 @@
 	function getByStock($stock)
 	{
 		global $dbh;
-		
 		//2. define query
 		$sql = "SELECT * FROM inventory  WHERE stock = '$stock'";
-		
 		//3. prepare statement
 		$statement = $dbh -> prepare($sql);
-		
 		//4. statement execute
 		$statement -> execute();
-		
 		//get results
 		$results = $statement -> fetch(PDO::FETCH_ASSOC);
-		
 		//return results
 		return $results;
 	}
-	
+
 	//Update Car Status
 	/**
 	 * This method uptates the status of a car given a stock number.
@@ -132,21 +114,18 @@
 	 *
 	 * @return bool
 	 */
-	function updateStatus($stock,$status)
+	function updateStatus($stock, $status)
 	{
 		//1. connect to database
 		global $dbh;
-		
 		//2. define query
 		$sql = "UPDATE  inventory SET status = '$status' WHERE stock = '$stock'";
-		
 		//3. prepare statement
 		$statement = $dbh -> prepare($sql);
-		
 		//4. statement execute
 		return $statement -> execute();
 	}
-	
+
 	/**
 	 * This method updates notes given a stock number.
 	 *
@@ -155,21 +134,18 @@
 	 *
 	 * @return bool
 	 */
-	function updateNotes($stock,$notes)
+	function updateNotes($stock, $notes)
 	{
 		//1. connect to database
 		global $dbh;
-		
 		//2. define query
 		$sql = "UPDATE  inventory SET notes = '$notes' WHERE stock = '$stock'";
-		
 		//3. prepare statement
 		$statement = $dbh -> prepare($sql);
-		
 		//4. statement execute
 		return $statement -> execute();
 	}
-	
+
 	//Remove Car
 	/**
 	 * This method removes a car from the database given a stock number.
@@ -182,17 +158,14 @@
 	{
 		//1. connect to database
 		global $dbh;
-		
 		//2. define query
 		$sql = "UPDATE  inventory SET status  = 0 WHERE stock = '$stock'";
-		
 		//3. prepare statement
 		$statement = $dbh -> prepare($sql);
-		
 		//4. statement execute
 		return $statement -> execute();
 	}
-	
+
 	//test data
 	/**
 	 * This function is used to check input;
@@ -201,7 +174,6 @@
 	 *
 	 * @return string
 	 */
-	
 	function validateData($data)
 	{
 		$data = trim($data);
