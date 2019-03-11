@@ -1,17 +1,18 @@
 <?php
+	
 	/**
 	 * This is the main car class used to create an Inventory Management System.
 	 *
 	 * @author   Celine Leano
 	 * @author   Adolfo Gonzalez
-	 * @version 1.0
+	 * @version  1.0
 	 *
 	 * File: car-info.php
 	 */
 	class CarInfo
 	{
 		//fields
-		private $_stockNumber;
+		private $_stock;
 		private $_year;
 		private $_make;
 		private $_model;
@@ -20,16 +21,16 @@
 		/**
 		 * This is the constructor for the car class.
 		 *
-		 * @param $_stockNumber 4digit number
+		 * @param $_stockNumber
 		 * @param $type
 		 * @param $year
 		 * @param $make
 		 * @param $model
 		 * @param $status
 		 */
-		public function __construct($stockNumber, $year, $make, $model, $status)
+		public function __construct($stock,$year,$make,$model,$status)
 		{
-			$this->_setStockNumber($stockNumber);
+			$this->_setStockNumber($stock);
 			$this->_setYear($year);
 			$this->_setMake($make);
 			$this->_setModel($model);
@@ -41,9 +42,9 @@
 		 *
 		 * @return $stockNumber
 		 */
-		public function getStockNumber()
+		public function getStock()
 		{
-			return $this->_stockNumber;
+			return $this->_stock;
 		}
 		
 		/**
@@ -51,9 +52,9 @@
 		 *
 		 * @param $stockNumber
 		 */
-		public function setStockNumber($stockNumber)
+		public function setStock($stock)
 		{
-			$this->_stockNumber = $stockNumber;
+			$this->_stock=$stock;
 		}
 		
 		/**
@@ -73,7 +74,7 @@
 		 */
 		public function setYear($year)
 		{
-			$this->_year = $year;
+			$this->_year=$year;
 		}
 		
 		/**
@@ -94,7 +95,7 @@
 		 */
 		public function setMake($make)
 		{
-			$this->_make = $make;
+			$this->_make=$make;
 		}
 		
 		/**
@@ -114,7 +115,7 @@
 		 */
 		public function setModel($model)
 		{
-			$this->_model = $model;
+			$this->_model=$model;
 		}
 		
 		/**
@@ -134,6 +135,6 @@
 		 */
 		public function setStatus($status)
 		{
-			$this->_status = $status;
+			$this->_status=$status;
 		}
 	}

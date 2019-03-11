@@ -9,7 +9,7 @@
 	 *
 	 * File: carType.php
 	 */
-	class CarType extends Car
+	class CarType extends CarInfo
 	{
 		//fields
 		private $_type;
@@ -19,15 +19,15 @@
 		/**
 		 * carType constructor.
 		 *
-		 * @param $_stockNumber
+		 * @param $stock
 		 * @param $year
 		 * @param $make
 		 * @param $model
 		 * @param $status
 		 */
-		public function __construct($_stockNumber, $year, $make, $model, $status)
+		public function __construct($stock,$year,$make,$model,$status)
 		{
-			parent ::__construct($_stockNumber, $year, $make, $model, $status);
+			parent::__construct($stock,$year,$make,$model,$status);
 		}
 		
 		/**
@@ -37,7 +37,7 @@
 		 */
 		public function getType()
 		{
-			return $this -> _type;
+			return $this->_type;
 		}
 		
 		/**
@@ -45,9 +45,9 @@
 		 *
 		 * @param $type
 		 */
-		public function setType($type): void
+		public function setType($type):void
 		{
-			$this -> _type = $type;
+			$this->_type=$type;
 		}
 		
 		/**
@@ -57,7 +57,7 @@
 		 */
 		public function getDoors()
 		{
-			return $this -> _doors;
+			return $this->_doors;
 		}
 		
 		/**
@@ -65,9 +65,9 @@
 		 *
 		 * @param $doors
 		 */
-		public function setDoors($doors): void
+		public function setDoors($doors):void
 		{
-			$this -> _doors = $doors;
+			$this->_doors=$doors;
 		}
 		
 		/**
@@ -77,7 +77,7 @@
 		 */
 		public function getCylinders()
 		{
-			return $this -> _cylinders;
+			return $this->_cylinders;
 		}
 		
 		/**
@@ -85,9 +85,9 @@
 		 *
 		 * @param $cylinders
 		 */
-		public function setCylinders($cylinders): void
+		public function setCylinders($cylinders):void
 		{
-			$this -> _cylinders = $cylinders;
+			$this->_cylinders=$cylinders;
 		}
 		
 	}
