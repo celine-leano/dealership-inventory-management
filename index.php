@@ -62,7 +62,7 @@
 		echo $template -> render("views/live.html");
 	});
 	// define route to admin login
-	$f3 -> route('GET|POST /admin/login', function($f3)
+	$f3 -> route('GET|POST /admin', function($f3)
 	{
 		//set title
 		$f3 -> set("title", "Admin Login");
@@ -71,10 +71,10 @@
 		$password = "";
 		//clear user sessions
 		$_SESSION['username'] = "";
-		//flag
-		global $isValid;
-		//if not empty
 		if(!empty([$_POST])){
+			//flag
+			global $isValid;
+			//if not empty
 			//check username field
 			if(isset($_POST['username'])){
 				//validate username

@@ -21,10 +21,10 @@
 		//2. Prepare statement
 		$statement = $dbh -> prepare($sql);
 		//execute
-		$statement -> execute(['password']);
+		$statement -> execute();
 		//store result in new variable
 		$verifiedPassword = $statement -> fetch();
-		if($password == $verifiedPassword){
+		if(sha1($password) == $verifiedPassword){
 			return $valid = "valid";
 		}
 		return $invalid = "invalid";
