@@ -1,40 +1,50 @@
 <!--
 Celine Leano and Adolfo Gonzalez
-2/18/2019
-328/final-project/views/admin-login.html
-Admin login screen
+2/10/2019
+328/final-project/views/login.html
+Employee login screen
 -->
 <include href="views/head.html"></include>
 <body class="bg-light">
-
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
-            <div class="card my-5">
-                <div class="card-header bg-light"><a href="../final-project"><< Back</a></div>
-                <div class="card-body p-4">
-                    <h3 class="card-title text-center">ADMIN LOGIN</h3>
-                    <form method="post" action="#">
-                        <div class="form-label-group">
-                            <label for="username" class="col-form-label">Username</label>
-                            <input id="username" class="form-control" required autofocus>
-                        </div>
-
-                        <div class="form-label-group">
-                            <label for="password" class="col-form-label">Password</label>
-                            <input type="password" id="password" class="form-control" required>
-                        </div>
-                        <!--<button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" type="submit">
-                        </button>
-                        -->
-                        <!-- href link for now -->
-                        <a class="btn btn-lg btn-primary btn-block text-uppercase mt-4" href="admin/tools">Login</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+				<div class="card my-5">
+					<div class="card-header bg-light">
+						<a href="../final-project"><< Back</a>
+					</div>
+					<div class="card-body p-4">
+						<h3 class="card-title text-center">ADMIN LOGIN</h3>
+						<form method="post" action="#">
+							<div class="form-label-group">
+								<label for="username" class="col-form-label">Username</label>
+								<input id="username" name="username" class="form-control"
+										value="{{ @username }}">
+								<check if="{{ !empty(@errorUsername) }}">
+									<span class="text-danger">{{ @errorUsername }}</span>
+								</check>
+							</div>
+							
+							<div class="form-label-group">
+								<label for="password" class="col-form-label">Password</label>
+								<input type="password" id="password" name="password"
+										class="form-control">
+								<check if="{{ !empty(@errorPassword) }}">
+									<span class="text-danger">{{ @errorPassword }}</span>
+								</check>
+							</div>
+							<input type="submit" id="submit" value="Login" class="btn btn-lg
+                        btn-primary btn-block text-uppercase mt-4">
+							<check if="{{ !empty(@errorLogin) }}">
+								<span class="text-danger text-center">{{ @errorLogin }}</span>
+							</check>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

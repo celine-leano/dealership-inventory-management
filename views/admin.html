@@ -7,122 +7,138 @@ Admin Page
 <include href="views/head.html"></include>
 
 <body>
-<h1>Administrator Page</h1>
-<div class="container">
-    <form class="form-control" action="#" method="post">
-        <div class="form-row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <h2>Add New Vehicle</h2>
-                    <label class="control-label" for="stock">Stock#:</label>
-                    <input type="text" class="form-control input" id="stock" placeholder="stock number" name="stock">
-
-
-                    <label class="control-label" for="year">Year:</label>
-                    <input type="text" class="form-control" id="year" placeholder="year" name="year">
-
-
-                    <label class="control-label" for="make">Make:</label>
-                    <input type="text" class="form-control" id="make" placeholder="make" name="make">
-
-
-                    <label class="control-label" for="model">Model:</label>
-                    <input type="text" class="form-control" id="model" placeholder="model" name="model">
-
-                    <label class="control-label" for="color">Color:</label>
-                    <input type="text" class="form-control" id="color" placeholder="color" name="color">
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <h2>Department</h2>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="detail">Detail
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="inspections">Inspections
-                        </label>
-                    </div>
-                    <div class="form-check disabled">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="inventoried">Inventoried
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="photo">Photo Area
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="paint">Paint
-                        </label>
-                    </div>
-                    <div class="form-check disabled">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="recondition">Reconditioning
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="ready">Ready for Sale
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="sales">Sales
-                        </label>
-                    </div>
-                    <div class="form-check disabled">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="service">Service
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="sold">Sold
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="parts">Waiting for parts
-                        </label>
-                    </div>
-                    <div class="form-check disabled">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="wash">Wash
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="wholesale">Wholesale
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <h2>Tech</h2>
-                    <label class="control-label" for="name">Tech Name:</label>
-                    <input type="text" class="form-control" id="name" placeholder="tech name" name="name">
-                    <label class="control-label" for="notes">Tech Notes:</label>
-                    <input type="textarea" rows="5" cols="60" id="notes" name="notes" placeholder="notes">
-                </div>
-            </div>
-        </div>
-
-    </form>
-    <div class="row">
-        <div class="col-sm-12">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-    </div>
-</div>
-
+	<h1>Administrator Page</h1>
+	<div class="container">
+		<form class="form-control" action="#" method="post">
+			<div class="form-row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h2>Add New Vehicle</h2>
+						<label class="control-label" for="stock">Stock#:</label>
+						<input type="text" class="form-control input" id="stock"
+								placeholder="stock number" name="stock">
+						
+						<label class="control-label" for="year">Year:</label>
+						<input type="text" class="form-control" id="year" placeholder="year"
+								name="year">
+						
+						<label class="control-label" for="make">Make:</label>
+						<input type="text" class="form-control" id="make" placeholder="make"
+								name="make">
+						
+						<label class="control-label" for="model">Model:</label>
+						<input type="text" class="form-control" id="model" placeholder="model"
+								name="model">
+						
+						<label class="control-label" for="color">Color:</label>
+						<input type="text" class="form-control" id="color" placeholder="color"
+								name="color">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h2>Department</h2>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="detail">
+								Detail
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="inspections">
+								Inspections
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="inventoried">
+								Inventoried
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="photo">
+								Photo Area
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="paint">
+								Paint
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="recondition">
+								Reconditioning
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="ready">
+								Ready for Sale
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="sales">
+								Sales
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="service">
+								Service
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="sold">
+								Sold
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="parts">
+								Waiting for parts
+							</label>
+						</div>
+						<div class="form-check disabled">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="wash">
+								Wash
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="wholesale">
+								Wholesale
+							</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h2>Tech</h2>
+						<label class="control-label" for="name">Tech Name:</label>
+						<input type="text" class="form-control" id="name" placeholder="tech name"
+								name="name">
+						<label class="control-label" for="notes">Tech Notes:</label>
+						<input type="textarea" rows="5" cols="60" id="notes" name="notes"
+								placeholder="notes">
+					</div>
+				</div>
+			</div>
+		
+		</form>
+		<div class="row">
+			<div class="col-sm-12">
+				<button type="submit" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

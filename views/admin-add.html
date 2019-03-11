@@ -7,64 +7,70 @@ Admin Add Tool - adds a new car to the dealership roster
 <include href="views/head.html"></include>
 
 <body class="bg-light">
-<div class="container border bg-white mt-3">
-
-    <h1 class="text-center m-2">Add a Vehicle</h1>
-    <hr>
-
-    <form action="#" method="post">
-        <div class="form-row">
-            <div class="col-lg-4">
-                <div class="form-group p-2">
-                    <h3>Information</h3>
-                    <label class="control-label" for="stock">Stock #:</label>
-                    <input type="text" class="form-control input" id="stock" placeholder="Stock Number" name="stock">
-
-
-                    <label class="control-label" for="year">Year:</label>
-                    <input type="text" class="form-control" id="year" placeholder="Year" name="year">
-
-
-                    <label class="control-label" for="make">Make:</label>
-                    <input type="text" class="form-control" id="make" placeholder="Make" name="make">
-
-
-                    <label class="control-label" for="make">Model:</label>
-                    <input type="text" class="form-control" id="model" placeholder="Model" name="model">
-
-                    <label class="control-label" for="color">Color:</label>
-                    <input type="text" class="form-control" id="color" placeholder="Color" name="color">
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group p-2">
-                    <h3>Department</h3>
-                        <repeat group="{{ @departments }} " key="{{ @key }}" value="{{ @value }}">
-                            <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" value="{{ @key }}">{{ @value }}
-                            </label>
-                            </div>
-                        </repeat>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="form-group p-2">
-                    <h3>Employee</h3>
-                    <label class="control-label" for="name">Employee Name:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Employee Name" name="name">
-                    <label class="control-label mt-2" for="notes">Additional Notes:</label><br>
-                    <input type="textarea" class="form-control" rows="5" cols="60" id="notes" name="notes" placeholder="Notes">
-
-                    <!-- submit form -->
-                    <button type="submit" class="btn btn-secondary float-right mt-3">Submit</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
+	<div class="container border bg-white mt-3">
+		
+		<h1 class="text-center m-2">Add a Vehicle</h1>
+		<hr>
+		
+		<form action="#" method="post">
+			<div class="form-row">
+				<div class="col-lg-4">
+					<div class="form-group p-2">
+						<h3>Information</h3>
+						<label class="control-label" for="stock">Stock #:</label>
+						<input type="text" class="form-control input" id="stock"
+								placeholder="Stock Number" name="stock">
+						
+						<label class="control-label" for="year">Year:</label>
+						<input type="text" class="form-control" id="year" placeholder="Year"
+								name="year">
+						
+						<label class="control-label" for="make">Make:</label>
+						<input type="text" class="form-control" id="make" placeholder="Make"
+								name="make">
+						
+						<label class="control-label" for="make">Model:</label>
+						<input type="text" class="form-control" id="model" placeholder="Model"
+								name="model">
+						
+						<label class="control-label" for="color">Color:</label>
+						<input type="text" class="form-control" id="color" placeholder="Color"
+								name="color">
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="form-group p-2">
+						<h3>Department</h3>
+						<repeat group="{{ @departments }} " key="{{ @key }}" value="{{ @value }}">
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" value="{{ @key }}">
+									{{ @value }}
+								</label>
+							</div>
+						</repeat>
+					</div>
+				</div>
+				
+				<div class="col-lg-4">
+					<div class="form-group p-2">
+						<h3>Employee</h3>
+						<label class="control-label" for="name">Employee Name:</label>
+						<input type="text" class="form-control" id="name"
+								placeholder="Employee Name" name="name">
+						<label class="control-label mt-2" for="notes">Additional Notes:</label>
+						<br>
+						<input type="textarea" class="form-control" rows="5" cols="60" id="notes"
+								name="notes" placeholder="Notes">
+						
+						<!-- submit form -->
+						<button type="submit" class="btn btn-secondary float-right mt-3">Submit
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 
 </body>
 </html>
