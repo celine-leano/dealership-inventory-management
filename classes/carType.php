@@ -27,7 +27,7 @@
 		 */
 		public function __construct($stock,$year,$make,$model,$status)
 		{
-			parent::__construct($stock,$year,$make,$model,$status);
+			parent ::__construct($stock,$year,$make,$model,$status);
 		}
 		
 		/**
@@ -37,7 +37,7 @@
 		 */
 		public function getType()
 		{
-			return $this->_type;
+			return $this -> _type;
 		}
 		
 		/**
@@ -47,7 +47,7 @@
 		 */
 		public function setType($type):void
 		{
-			$this->_type=$type;
+			$this -> _type = $type;
 		}
 		
 		/**
@@ -57,7 +57,7 @@
 		 */
 		public function getDoors()
 		{
-			return $this->_doors;
+			return $this -> _doors;
 		}
 		
 		/**
@@ -67,7 +67,7 @@
 		 */
 		public function setDoors($doors):void
 		{
-			$this->_doors=$doors;
+			$this -> _doors = $doors;
 		}
 		
 		/**
@@ -77,7 +77,7 @@
 		 */
 		public function getCylinders()
 		{
-			return $this->_cylinders;
+			return $this -> _cylinders;
 		}
 		
 		/**
@@ -87,7 +87,7 @@
 		 */
 		public function setCylinders($cylinders):void
 		{
-			$this->_cylinders=$cylinders;
+			$this -> _cylinders = $cylinders;
 		}
 		
 	}

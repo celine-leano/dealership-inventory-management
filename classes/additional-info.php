@@ -30,7 +30,7 @@
 		 */
 		function __construct($stock,$year,$make,$model,$status)
 		{
-			parent::__construct($stock,$year,$make,$model,$status);
+			parent ::__construct($stock,$year,$make,$model,$status);
 		}
 		
 		// getters and setters
@@ -42,7 +42,7 @@
 		 */
 		function getNotes()
 		{
-			return $this->_notes;
+			return $this -> _notes;
 		}
 		
 		/**
@@ -52,7 +52,7 @@
 		 */
 		function setNotes($notes)
 		{
-			$this->_notes=$notes;
+			$this -> _notes = $notes;
 		}
 		
 		/**
@@ -62,7 +62,7 @@
 		 */
 		function getBudget()
 		{
-			return $this->_budget;
+			return $this -> _budget;
 		}
 		
 		/**
@@ -72,6 +72,6 @@
 		 */
 		function setBudget($budget)
 		{
-			$this->_budget=$budget;
+			$this -> _budget = $budget;
 		}
 	}

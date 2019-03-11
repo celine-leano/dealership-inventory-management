@@ -30,11 +30,11 @@
 		 */
 		public function __construct($stock,$year,$make,$model,$status)
 		{
-			$this->_setStockNumber($stock);
-			$this->_setYear($year);
-			$this->_setMake($make);
-			$this->_setModel($model);
-			$this->_setColor($status);
+			$this -> _setStockNumber($stock);
+			$this -> _setYear($year);
+			$this -> _setMake($make);
+			$this -> _setModel($model);
+			$this -> _setColor($status);
 		}
 		
 		/**
@@ -44,7 +44,7 @@
 		 */
 		public function getStock()
 		{
-			return $this->_stock;
+			return $this -> _stock;
 		}
 		
 		/**
@@ -54,7 +54,7 @@
 		 */
 		public function setStock($stock)
 		{
-			$this->_stock=$stock;
+			$this -> _stock = $stock;
 		}
 		
 		/**
@@ -64,7 +64,7 @@
 		 */
 		public function getYear()
 		{
-			return $this->_year;
+			return $this -> _year;
 		}
 		
 		/**
@@ -74,7 +74,7 @@
 		 */
 		public function setYear($year)
 		{
-			$this->_year=$year;
+			$this -> _year = $year;
 		}
 		
 		/**
@@ -85,7 +85,7 @@
 		 */
 		public function getMake()
 		{
-			return $this->_make;
+			return $this -> _make;
 		}
 		
 		/**
@@ -95,7 +95,7 @@
 		 */
 		public function setMake($make)
 		{
-			$this->_make=$make;
+			$this -> _make = $make;
 		}
 		
 		/**
@@ -105,7 +105,7 @@
 		 */
 		public function getModel()
 		{
-			return $this->_model;
+			return $this -> _model;
 		}
 		
 		/**
@@ -115,7 +115,7 @@
 		 */
 		public function setModel($model)
 		{
-			$this->_model=$model;
+			$this -> _model = $model;
 		}
 		
 		/**
@@ -125,7 +125,7 @@
 		 */
 		public function getStatus()
 		{
-			return $this->_status;
+			return $this -> _status;
 		}
 		
 		/**
@@ -135,6 +135,6 @@
 		 */
 		public function setStatus($status)
 		{
-			$this->_status=$status;
+			$this -> _status = $status;
 		}
 	}
