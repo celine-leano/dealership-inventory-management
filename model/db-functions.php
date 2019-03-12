@@ -29,6 +29,18 @@ function login($username, $password)
     return $invalid = "invalid";
 }
 
+function employeeLogin($username, $password)
+{
+    global $dbh;
+
+    $sql = "SELECT * FROM logins WHERE username = '$username' 
+            AND password = SHA1('$password')";
+    $statement = $dbh->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 // Stock number look-up
 function searchStockNum($stock)
 {
