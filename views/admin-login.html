@@ -6,7 +6,6 @@ Employee login screen
 -->
 <include href="views/head.html"></include>
 <body class="bg-light">
-	
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
@@ -20,31 +19,51 @@ Employee login screen
 							<div class="form-label-group">
 								<label for="username" class="col-form-label">Username</label>
 								<input id="username" name="username" class="form-control"
-										value="{{ @username }}">
+										value="{{ @username }}" autofocus autocomplete="username"
+										required>
 								<check if="{{ !empty(@errorUsername) }}">
 									<span class="text-danger">{{ @errorUsername }}</span>
 								</check>
 							</div>
-							
 							<div class="form-label-group">
 								<label for="password" class="col-form-label">Password</label>
 								<input type="password" id="password" name="password"
-										class="form-control">
+										class="form-control" autofocus
+										autocomplete="password" required>
 								<check if="{{ !empty(@errorPassword) }}">
 									<span class="text-danger">{{ @errorPassword }}</span>
 								</check>
 							</div>
 							<input type="submit" id="submit" value="Login" class="btn btn-lg
                         btn-primary btn-block text-uppercase mt-4" href="admin-tools">
+							
 							<check if="{{ !empty(@errorLogin) }}">
 								<span class="text-danger text-center">{{ @errorLogin }}</span>
 							</check>
 						</form>
+						
+						<div id="message" class="d-none">
+							<h3>Password must contain the following:</h3>
+							<p id="letter" class="invalid">A
+								<b>lowercase</b>
+								letter
+							</p>
+							<p id="capital" class="invalid">A
+								<b>capital (uppercase)</b>
+								letter
+							</p>
+							<p id="number" class="invalid">A
+								<b>number</b>
+							</p>
+							<p id="length" class="invalid">Minimum
+								<b>4 characters</b>
+							</p>
+						</div>
+					
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
