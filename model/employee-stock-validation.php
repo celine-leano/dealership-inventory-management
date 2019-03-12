@@ -2,9 +2,11 @@
 /**
  * Celine Leano and Adolfo Gonzalez
  * 3/11/2019
- * 328/final-project/model/employee-stock-db-functions.php
+ * 328/final-project/model/employee-stock-validation.php
  * Validates stock #
  */
+
+global $f3;
 
 $isValid = true;
 

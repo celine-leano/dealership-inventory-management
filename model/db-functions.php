@@ -49,7 +49,7 @@ function searchStockNum($stock)
     $sql = "SELECT * FROM inventory WHERE stock = '$stock'";
     $statement = $dbh->prepare($sql);
     $statement->execute();
-    $result = $statement->fetch();
+    $result = $statement->fetchAll();
     return $result;
 }
 

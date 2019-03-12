@@ -10,7 +10,6 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 // require autoload
 require_once('vendor/autoload.php');
-session_start();
 
 //Connect to DB
 require('model/database.php');
@@ -18,6 +17,8 @@ $dbh = connect();
 if (!$dbh) { //don't go any further if we can't connect to the database
     exit;
 }
+session_start();
+
 // create an instance of the Base class
 $f3 = Base::instance();
 // turn on Fat-Free error reporting
@@ -50,7 +51,7 @@ $f3->route('GET|POST /stock', function ($f3) {
     $f3->set("title", "Enter Stock Number");
 
     $_SESSION = array();
-    require("model/employee-stock-validation.php");
+    //require("model/employee-stock-validation.php");
 
     $template = new Template();
     echo $template->render("views/stock.html");
