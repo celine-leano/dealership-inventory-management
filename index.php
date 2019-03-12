@@ -40,7 +40,7 @@ $f3->route('GET|POST /login', function ($f3) {
     //set title
     $f3->set("title", "Employee Login");
     // validate login credentials
-    require("model/employee-login-db-functions.php");
+    require("model/employee-login-validation.php");
     //template variable
     $template = new Template();
     echo $template->render("views/login.html");
@@ -56,11 +56,10 @@ $f3->route('GET|POST /stock', function ($f3) {
     echo $template->render("views/stock.html");
 });
 // define route for vehicle info after inputting a stock number
-$f3->route('GET|POST /vehicle-info', function ($f3) {
+$f3->route('GET|POST /info', function ($f3) {
     $f3->set("title", "Vehicle Information");
 
     $f3->set("stock", $_SESSION['stock']);
-
 
     $template = new Template();
     echo $template->render('views/vehicle-info.html');

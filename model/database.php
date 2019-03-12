@@ -48,5 +48,5 @@
 		}
 	}
 
-	//require validation
+	//require functions
 	require_once('model/db-functions.php');
