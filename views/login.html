@@ -14,29 +14,26 @@ Employee login screen
                 <div class="card-header bg-light"><a href="../final-project"><< Back</a></div>
                 <div class="card-body p-4">
                     <h3 class="card-title text-center">EMPLOYEE LOGIN</h3>
+
+                    <check if="{{ isset(@errorEmployeeLogin) }}">
+                        <div class="alert alert-danger" role="alert">
+                            {{ @errorEmployeeLogin }}
+                        </div>
+                    </check>
                     <form method="post" action="#">
                         <div class="form-label-group">
                             <label for="username" class="col-form-label">Username</label>
                             <input id="username" name="username" class="form-control"
-                                   value="{{ @username }}">
-                            <check if="{{ isset(@errorUsername) }}">
-                                <span class="text-danger">{{ @errorUsername }}</span>
-                            </check>
+                                   value="{{ @username }}" autofocus>
                         </div>
 
                         <div class="form-label-group">
                             <label for="password" class="col-form-label">Password</label>
                             <input type="password" id="password" name="password"
                                    class="form-control">
-                            <check if="{{ isset(@errorPassword) }}">
-                                <span class="text-danger">{{ @errorPassword }}</span>
-                            </check>
                         </div>
                         <input type="submit" id="submit" value="Login" class="btn btn-lg
                         btn-primary btn-block text-uppercase mt-4">
-                        <check if="{{ isset(@errorLogin) }}">
-                            <span class="text-danger text-center">{{ @errorLogin }}</span>
-                        </check>
                     </form>
                 </div>
             </div>
