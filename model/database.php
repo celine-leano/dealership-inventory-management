@@ -29,7 +29,7 @@
 	 ***************************************************************************
 	 */
 	// Connect to Inventory Database
-	require_once('/home/agonzale/config.php');
+	require_once('/home/cleanogr/config.php');
 	/**
 	 * This method connect to the inventory database.
 	 *
@@ -49,4 +49,4 @@
 	}
 
 	//require validation
-	require_once('model/validation.php');
+	require_once('model/db-functions.php');

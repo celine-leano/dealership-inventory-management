@@ -2,7 +2,7 @@
 /**
  * Celine Leano and Adolfo Gonzalez
  * 3/7/2019
- * 328/final-project2/model/employee-login-validation.php
+ * 328/final-project2/model/employee-login-db-functions.php
  * Validation for employee login page, and updates
  */
 
