@@ -57,7 +57,7 @@ $f3->route('GET|POST /stock', function ($f3) {
     echo $template->render("views/stock.html");
 });
 // define route for vehicle info after inputting a stock number
-$f3->route('GET|POST /info', function ($f3) {
+$f3->route('GET|POST /vehicle-info', function ($f3) {
     $f3->set("title", "Vehicle Information");
 
     $f3->set("stock", $_SESSION['stock']);
