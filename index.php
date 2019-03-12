@@ -39,6 +39,8 @@ $f3->route('GET|POST /', function ($f3) {
 $f3->route('GET|POST /login', function ($f3) {
     //set title
     $f3->set("title", "Employee Login");
+    // validate login credentials
+    require("model/employee-login-db-functions.php");
     //template variable
     $template = new Template();
     echo $template->render("views/login.html");
