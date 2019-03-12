@@ -111,9 +111,9 @@
 				$template = new Template();
 				echo $template -> render("views/admin-tools.html");
 			}
+			$template = new Template();
+			echo $template -> render("views/admin-login.html");
 		}
-		$template = new Template();
-		echo $template -> render("views/admin-login.html");
 	});
 	// define route to admin tools
 	$f3 -> route('GET|POST /admin/tools', function($f3)

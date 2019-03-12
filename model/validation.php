@@ -22,7 +22,7 @@
 		$statement = $dbh -> prepare($sql);
 		//execute
 		$statement -> execute();
-		$result = $statement -> fetch(['password']);
+		$result = $statement -> fetch();
 		if($result == $password){
 			return $valid = "valid";
 		}
