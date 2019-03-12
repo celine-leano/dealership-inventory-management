@@ -20,8 +20,10 @@ if (!empty($_POST)) {
         $isValid = false;
     } else if ($username == "admin") {
         $f3->set("errorUsername", "Please use the admin login");
+        $isValid = false;
     } else if ($username != "lmemployee") {
         $f3->set("errorUsername", "Invalid username");
+        $isValid = false;
     }
 
 // validate password field
