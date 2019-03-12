@@ -17,14 +17,13 @@
 	{
 		global $dbh;
 		//1. Define query
-		$sql = "SELECT * FROM logins WHERE username = '$username'";
+		$sql = "SELECT * FROM logins WHERE username = '$username' and password = '$password'";
 		//2. Prepare statement
 		$statement = $dbh -> prepare($sql);
 		//execute
 		$statement -> execute();
-		//store result in new variable
-		$verifiedPassword = $statement -> fetch();
-		if(sha1($password) == $verifiedPassword){
+		$result = $statement -> fetch(['password']);
+		if($result == $password){
 			return $valid = "valid";
 		}
 		return $invalid = "invalid";

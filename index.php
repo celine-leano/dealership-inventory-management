@@ -103,7 +103,9 @@
 				$errorPassword = "Please enter a valid password.";
 				$isValid = FALSE;
 			}
+			//if user name and password
 			if($isValid){
+				$password = sha1($password);
 				$result = login($username, $password);
 				echo "<p>$result</p>";
 				$template = new Template();
