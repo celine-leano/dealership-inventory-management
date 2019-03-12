@@ -1,33 +1,33 @@
 <!--
 Celine Leano and Adolfo Gonzalez
 2/10/2019
-328/final-project/views/stock.html
+328/final-project2/views/stock.html
 View to input stock number after logging in
 -->
 <include href="views/head.html"></include>
 <body class="bg-light">
-	
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
-				<div class="card my-5">
-					<div class="card-header bg-light">
-						<a href="../final-project"><< Logout</a>
-					</div>
-					<div class="card-body p-4">
-						<h3 class="card-title text-center text-uppercase">Enter Stock #</h3>
-						<form method="post" action="#">
-							<input class="input-group text-center" type="text" maxlength="4">
-							<!-- href link for now -->
-							<a class="btn btn-md btn-primary btn-block text-uppercase mt-4"
-									href="info">SEARCH
-							</a>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+            <div class="card my-5">
+                <div class="card-header bg-light"><a href="../final-project"><< Logout</a></div>
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center text-uppercase">Enter Stock #</h3>
+                    <form method="post" action="#">
+                        <input name="stock" class="input-group text-center" type="text" maxlength="4">
+                        <check if="{{ isset(@errorStock) }}">
+                            <span class="text-danger">{{ @errorStock }}</span>
+                        </check>
+
+                        <input type="submit" id="submit" value="Search" class="btn btn-lg
+                        btn-primary btn-block text-uppercase mt-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
