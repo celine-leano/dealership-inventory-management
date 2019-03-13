@@ -88,19 +88,30 @@ View to input stock number after logging in
                         </thead>
 
                         <tbody>
-                            <repeat group="{{ @history }}" value="{{ @update }}">
-                                <tr>
-                                    <td>{{ @update['timestamp'] }}</td>
-                                    <td>{{ @update['status'] }}</td>
-                                    <td>{{ @update['updatedBy'] }}</td>
-                                </tr>
-                            </repeat>
+                        <repeat group="{{ @history }}" value="{{ @update }}">
+                            <tr>
+                                <td>{{ @update['timestamp'] }}</td>
+                                <td>{{ @update['status'] }}</td>
+                                <td>{{ @update['updatedBy'] }}</td>
+                            </tr>
+                        </repeat>
                         </tbody>
                     </table>
 
+                    <hr>
+
+                    <div class="m-0 p-2">
+                        <repeat group="{{ @history }}" value="{{ @update }}">
+                            <check if="{{ @update['notes'] != null }}">
+                                <p>{{ @update['notes'] }} <i>- {{ @update['updatedBy'] }}</i></p>
+                            </check>
+                        </repeat>
+                    </div>
+
                     <div class="text-center">
                         <a href="update-status" class="btn btn-md btn-primary text-uppercase">Update Status</a>
-                        <a href="stock" class="btn btn-md btn-secondary text-uppercase">Search For a Different Vehicle</a>
+                        <a href="stock" class="btn btn-md btn-secondary text-uppercase">Search For a Different
+                            Vehicle</a>
                     </div>
                 </div>
             </div>

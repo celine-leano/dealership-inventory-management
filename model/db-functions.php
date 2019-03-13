@@ -135,15 +135,23 @@ function getCars()
  *
  * @return bool
  */
-function updateStatus($stock, $status)
+function updateStatus($stock, $make, $model, $year, $status, $updatedBy,
+                        $notes, $budget)
 {
-    //1. connect to database
     global $dbh;
-    //2. define query
-    $sql = "UPDATE  inventory SET status = '$status' WHERE stock = '$stock'";
-    //3. prepare statement
+    $sql = "INSERT stock, make, model, year, status, updatedBy, notes, budget INTO inventory 
+            VALUES (:stock, :make, :model, :year, :status, :updatedBy, :notes, :budget)";
     $statement = $dbh->prepare($sql);
-    //4. statement execute
+
+    //bind parameters
+    $statement->bindParam(':stock', $stock, PDO::PARAM_STR);
+    $statement->bindParam(':make', $make, PDO::PARAM_STR);
+    $statement->bindParam(':model', $model, PDO::PARAM_STR);
+    $statement->bindParam(':year', $year, PDO::PARAM_STR);
+    $statement->bindParam(':status', $status, PDO::PARAM_STR);
+    $statement->bindParam(':updatedBy', $updatedBy, PDO::PARAM_STR);
+    $statement->bindParam(':notes', $notes, PDO::PARAM_STR);
+    $statement->bindParam(':budget', $budget, PDO::PARAM_STR);
     return $statement->execute();
 }
 

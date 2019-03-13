@@ -24,10 +24,10 @@ $f3 = Base::instance();
 // turn on Fat-Free error reporting
 $f3->set('DEBUG', 3);
 // department array
-$f3->set("departments", ["detail" => "Detail", "inspection" => "Inspection", "inventoried" => "Inventoried",
+$f3->set("departments", array("detail" => "Detail", "inspection" => "Inspection", "inventoried" => "Inventoried",
     "photo-area" => "Photo Area", "paint" => "Paint", "reconditioning" => "Reconditioning",
     "ready-for-sale" => "Ready For Sale", "sales" => "Sales", "service" => "Service", "sold" => "Sold",
-    "waiting-for-parts" => "Waiting For Parts", "wash" => "Wash", "wholesale" => "Wholesale"]);
+    "waiting-for-parts" => "Waiting For Parts", "wash" => "Wash", "wholesale" => "Wholesale"));
 // define a default route
 $f3->route('GET|POST /', function ($f3) {
     //set title
@@ -71,9 +71,31 @@ $f3->route('GET|POST /vehicle-info', function ($f3) {
 });
 // define route to update a vehicle's status
 $f3->route('GET|POST /update-status', function($f3) {
+    global $f3;
+
     $f3->set("title", "Update Status");
 
     $stock = $_SESSION['stock'];
+    $f3->set("stock", $stock);
+
+    // remaining departments
+    $index = 0;
+    $statuses = array("Inventoried", "Inspection", "Service", "Paint",
+        "Reconditioning", "Waiting For Parts", "Detail", "Photo Area", "Ready For Sale",
+        "Sales", "Wash");
+    for ($i = 0; $i <= count($statuses); $i++) {
+        if ($statuses[$i] == $stock['status']) {
+            $index = $i;
+            break;
+        }
+    }
+
+    $remainingDepartments = array();
+    for ($i = $index + 1; $i <= count($statuses); $i++) {
+        $remainingDepartments[] = $statuses[$i];
+    }
+
+    $f3->set("remaining", $remainingDepartments);
 
     $template = new Template();
     echo $template->render('views/update-status.html');
