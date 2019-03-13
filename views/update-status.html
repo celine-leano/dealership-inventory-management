@@ -18,12 +18,33 @@ View to input stock number after logging in
                         {{ @stock['model'] }}</h2>
                     <hr>
                     <div class="text-center">
-                        This vehicle is still missing the following:<br>
+                        <check if="{{ @stock['status'] == 'Sold' }}">
+                            This vehicle has marked as sold. Please login as an admin to remove the vehicle from
+                            the inventory list.
+                        </check>
 
-                        <repeat group="{{ @remaining }}" value="{{ @department }}">
-                            {{ @department }}<br>
-                        </repeat>
+                        <check if="{{ @stock['status'] != 'Sold' }}">
+                            This vehicle is still missing the following:<br>
+
+                            <repeat group="{{ @remaining }}" value="{{ @department }}">
+                                {{ @department }}<br>
+                            </repeat>
+                        </check>
                     </div>
+
+                    <form method="post" action="#">
+                        <div class="form-label-group">
+                            <label for="username" class="col-form-label">Username</label>
+                            <input id="username" name="username" class="form-control"
+                                   value="{{ @username }}" autofocus>
+                        </div>
+
+                        <div class="form-label-group">
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" id="password" name="password"
+                                   class="form-control">
+                        </div>
+                    </form>
 
                     <hr>
 

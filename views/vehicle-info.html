@@ -108,6 +108,14 @@ View to input stock number after logging in
                         </repeat>
                     </div>
 
+                    <repeat group="{{ @history }}" value="{{ @update }}">
+                        <check if="{{ @update['budget'] != null }}">
+                            <div class="text-center">
+                                <p><b>Budget: </b> ${{ @update['budget'] }}</p>
+                            </div>
+                        </check>
+                    </repeat>
+
                     <div class="text-center">
                         <a href="update-status" class="btn btn-md btn-primary text-uppercase">Update Status</a>
                         <a href="stock" class="btn btn-md btn-secondary text-uppercase">Search For a Different
