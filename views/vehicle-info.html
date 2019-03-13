@@ -77,6 +77,26 @@ View to input stock number after logging in
                     </div>
 
                     <hr>
+                    <h6 class="text-center">History</h6>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Status</th>
+                            <th>Updated By</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                            <repeat group="{{ @history }}" value="{{ @update }}">
+                                <tr>
+                                    <td>{{ @update['timestamp'] }}</td>
+                                    <td>{{ @update['status'] }}</td>
+                                    <td>{{ @update['updatedBy'] }}</td>
+                                </tr>
+                            </repeat>
+                        </tbody>
+                    </table>
 
                     <div class="text-center">
                         <a href="update-status" class="btn btn-md btn-primary text-uppercase">Update Status</a>

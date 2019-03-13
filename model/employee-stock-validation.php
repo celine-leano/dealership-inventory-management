@@ -31,6 +31,7 @@ if (!empty($_POST)) {
         $success = searchStockNum($stock);
 
         if ($success) {
+            $_SESSION['stockNum'] = $stock;
             $_SESSION['stock'] = $success;
             $f3->reroute("vehicle-info");
         } else {

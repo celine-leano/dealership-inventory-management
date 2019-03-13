@@ -1,0 +1,37 @@
+<!--
+Celine Leano and Adolfo Gonzalez
+2/10/2019
+328/final-project2/views/stock.html
+View to input stock number after logging in
+-->
+<include href="views/head.html"></include>
+<body class="bg-light">
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-sm-9 col-lg-6 mx-auto">
+            <div class="card my-5">
+                <div class="card-header bg-light"><a href="../final-project"><< Logout</a></div>
+                <div class="card-body p-4">
+                    <h5 class="card-title text-center text-uppercase">UPDATE STATUS FOR</h5>
+                    <h2 class="card-title text-center">{{ @stock['year'] }} {{ @stock['make'] }}
+                        {{ @stock['model'] }}</h2>
+                    <hr>
+                    <div class="text-center">
+                        <b class="text-primary">{{ @stock['status'] }}</b> by {{ @stock['updatedBy'] }}<br>
+                    </div>
+
+                    <hr>
+
+                    <div class="text-center">
+                        <a href="update-status" class="btn btn-md btn-primary text-uppercase">Update Status</a>
+                        <a href="stock" class="btn btn-md btn-secondary text-uppercase">Search For a Different Vehicle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

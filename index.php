@@ -60,16 +60,31 @@ $f3->route('GET|POST /stock', function ($f3) {
 $f3->route('GET|POST /vehicle-info', function ($f3) {
     $f3->set("title", "Vehicle Information");
 
-    $f3->set("stock", $_SESSION['stock']);
+    $stock = $_SESSION['stock'];
+    $f3->set("stock", $stock);
+    $stockNum = $_SESSION['stockNum'];
+    $history = getHistory($stockNum);
+    $f3->set("history", $history);
 
     $template = new Template();
     echo $template->render('views/vehicle-info.html');
 });
+// define route to update a vehicle's status
+$f3->route('GET|POST /update-status', function($f3) {
+    $f3->set("title", "Update Status");
+
+    $stock = $_SESSION['stock'];
+
+    $template = new Template();
+    echo $template->render('views/update-status.html');
+});
 // define live board route
 $f3->route('GET /live', function ($f3) {
     $f3->set("title", "Live Board");
-    //for testing only
-    //	echo "<p>".implode(", ", getCars())."</p>";
+
+    $cars = getCars();
+    $f3->set("cars", $cars);
+
     $template = new Template();
     echo $template->render("views/live.html");
 });

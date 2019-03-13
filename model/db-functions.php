@@ -46,11 +46,28 @@ function searchStockNum($stock)
 {
     global $dbh;
 
-    $sql = "SELECT * FROM inventory WHERE stock = '$stock'";
+    $sql = "SELECT * FROM inventory s1
+        WHERE timestamp = (
+        SELECT MAX(timestamp)
+        FROM inventory s2
+        WHERE s1.stock = s2.stock
+        AND stock = '$stock')";
     $statement = $dbh->prepare($sql);
     $statement->execute();
     $result = $statement->fetch();
     return $result;
+}
+
+// Get vehicle history
+function getHistory($stock)
+{
+    global $dbh;
+
+    $sql = "SELECT * FROM inventory WHERE stock = '$stock' ORDER BY timestamp DESC";
+    $statement = $dbh->prepare($sql);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    return $results;
 }
 
 // Add New Car
@@ -94,36 +111,17 @@ function getCars()
     //1. connect to database
     global $dbh;
     //2. define query
-    $sql = "SELECT * FROM inventory";//maybe group by status or date
+    $sql = "SELECT i1.stock, i1.make, i1.model, i1.year, i1.status, 
+            i1.updatedBy, i1.timestamp 
+            FROM inventory i1 WHERE timestamp = (SELECT MAX(timestamp) 
+            FROM inventory i2 WHERE i1.stock = i2.stock)
+            AND i1.active=1 ORDER BY timestamp desc";
     //3. prepare statement
     $statement = $dbh->prepare($sql);
     //4. execute statement
     $statement->execute();
     //get results
-    $results = $statement->fetch(PDO::FETCH_ASSOC);
-    //return results
-    return $results;
-}
-
-//Get Car Info/Status
-/**
- * This method retrives a car with a given stock number.
- *
- * @param $stock
- *
- * @return mixed
- */
-function getByStock($stock)
-{
-    global $dbh;
-    //2. define query
-    $sql = "SELECT * FROM inventory  WHERE stock = '$stock'";
-    //3. prepare statement
-    $statement = $dbh->prepare($sql);
-    //4. statement execute
-    $statement->execute();
-    //get results
-    $results = $statement->fetch(PDO::FETCH_ASSOC);
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     //return results
     return $results;
 }
