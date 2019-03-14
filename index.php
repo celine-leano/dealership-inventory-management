@@ -2,7 +2,7 @@
 /**
  * Celine Leano and Adolfo Gonzalez
  * 2/10/2019
- * 328/final-project/index.php
+ * 328/final-project3/index.php
  * Fat-Free Routing
  */
 // turn on error reporting
@@ -78,24 +78,8 @@ $f3->route('GET|POST /update-status', function($f3) {
     $stock = $_SESSION['stock'];
     $f3->set("stock", $stock);
 
-    // remaining departments
-    $index = 0;
-    $statuses = array("Inventoried", "Inspection", "Service", "Paint",
-        "Reconditioning", "Waiting For Parts", "Detail", "Photo Area", "Ready For Sale",
-        "Sales", "Wash");
-    for ($i = 0; $i <= count($statuses); $i++) {
-        if ($statuses[$i] == $stock['status']) {
-            $index = $i;
-            break;
-        }
-    }
-
-    $remainingDepartments = array();
-    for ($i = $index + 1; $i <= count($statuses); $i++) {
-        $remainingDepartments[] = $statuses[$i];
-    }
-
-    $f3->set("remaining", $remainingDepartments);
+    // get 'to do' list and validate update form
+    require('model/employee-update-status.php');
 
     $template = new Template();
     echo $template->render('views/update-status.html');
