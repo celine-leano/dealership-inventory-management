@@ -100,7 +100,7 @@ View to input stock number after logging in
 
                     <hr>
 
-                    <div class="m-0 p-2">
+                    <div class="m-0 p-1">
                         <repeat group="{{ @history }}" value="{{ @update }}">
                             <check if="{{ @update['notes'] != null }}">
                                 <p>{{ @update['notes'] }} <i>- {{ @update['updatedBy'] }}</i></p>
@@ -110,7 +110,7 @@ View to input stock number after logging in
 
                     <repeat group="{{ @history }}" value="{{ @update }}">
                         <check if="{{ @update['budget'] != null }}">
-                            <div class="text-center">
+                            <div class="m-0 p-1">
                                 <p><b>Budget: </b> ${{ @update['budget'] }}</p>
                             </div>
                         </check>
