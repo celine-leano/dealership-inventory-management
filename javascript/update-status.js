@@ -11,7 +11,7 @@ function goBack() {
 }
 
 // toggles div with 'notes' and 'budget'
-$(":checkbox").on("click", function() {
+$(":checkbox").on("click", function () {
     if ($(this).prop("checked")) {
         $("#additional").show();
     } else {

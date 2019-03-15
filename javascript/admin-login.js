@@ -17,22 +17,22 @@ var number = document.getElementById("number");
 // on click  user field
 username.onfocus = function () {
     document.getElementById("username").style.display = "block";
-}
+};
 
 // when clicked out
 username.onblur = function () {
     document.getElementById("username").style.display = "none";
-}
+};
 
 // clicks on password field,
 password.onfocus = function () {
     document.getElementById("password").style.display = "block";
-}
+};
 
 // when click out
 password.onblur = function () {
     document.getElementById("password").style.display = "none";
-}
+};
 
 // When the user starts to type something inside the password field
 password.onkeyup = function () {
@@ -76,4 +76,4 @@ password.onkeyup = function () {
         length.classList.add("invalid");
     }
 
-}
+};
