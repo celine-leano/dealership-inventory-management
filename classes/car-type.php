@@ -10,7 +10,7 @@
  *
  * File: 328/final-project/classes/car-type.php
  */
-class CarType extends Car
+class CarType extends CarInfo
 {
     //fields
     private $_type;
@@ -52,7 +52,7 @@ class CarType extends Car
      *
      * @param mixed $type
      *
-     * @return CarType
+     * @return CarInfoType
      */
     public function setType($type)
     {
@@ -79,7 +79,7 @@ class CarType extends Car
      *
      * @param mixed $engine
      *
-     * @return CarType
+     * @return CarInfoType
      */
     public function setEngine($engine)
     {
@@ -106,7 +106,7 @@ class CarType extends Car
      *
      * @param mixed $transmission
      *
-     * @return CarType
+     * @return CarInfoType
      */
     public function setTransmission($transmission)
     {
@@ -133,7 +133,7 @@ class CarType extends Car
      *
      * @param mixed $fuel
      *
-     * @return CarType
+     * @return CarInfoType
      */
     public function setFuel($fuel)
     {
