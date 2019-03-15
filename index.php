@@ -107,7 +107,7 @@ $f3 -> route('GET|POST /admin/tools', function($f3)
     //set title
     $f3 -> set("title", "Admin Tools");
     $template = new Template();
-    echo $template -> render("views/admin-login.html");
+    echo $template -> render("views/admin-tools.html");
 });
 // define route to admin add car
 $f3 -> route('GET|POST /admin/add', function($f3)

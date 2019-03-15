@@ -97,9 +97,9 @@ if(!empty($_POST))
         $notes = $_POST['notes'];
         $_SESSION['notes'] = $notes;
     }
-    if($isValid)
-    {
-        addCar($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'], $_SESSION['status']);
-        echo "Success - new car added.";
-    }
+}
+if($isValid)
+{
+    addCar($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'], $_SESSION['status']);
+    echo "Success - new car added.";
 }

@@ -20,13 +20,13 @@ Live Board to be viewed on TV screens and/or monitors
 			</tr>
 		</thead>
 		<tbody>
-		<repeat group="{{ @cars }}" value="{{ @car }}">
-			<check if="{{ @car['status'] == 'Ready For Sale' }}">
-				<tr class="bg-warning">
-			</check>
-			<check if="{{ @car['status'] != 'Ready For Sale' }}">
-				<tr>
-			</check>
+			<repeat group="{{ @cars }}" value="{{ @car }}">
+				<check if="{{ @car['status'] == 'Ready For Sale' }}">
+					<tr class="bg-warning">
+				</check>
+				<check if="{{ @car['status'] != 'Ready For Sale' }}">
+					<tr>
+				</check>
 				<th scope="row">{{ @car['stock'] }}</th>
 				<td>{{ @car['year'] }}</td>
 				<td class="text-uppercase">{{ @car['make'] }}</td>
@@ -34,8 +34,8 @@ Live Board to be viewed on TV screens and/or monitors
 				<td class="text-uppercase font-weight-bold">{{ @car['status'] }}</td>
 				<td class="text-uppercase">{{ @car['updatedBy'] }}</td>
 				<td>{{ @car['timestamp'] }}</td>
-			</tr>
-		</repeat>
+				</tr>
+			</repeat>
 		</tbody>
 	</table>
 

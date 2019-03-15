@@ -118,8 +118,7 @@ function addCar($stock, $make, $model, $year, $status)
 {
     global $dbh;
     //1. define query
-    $sql = "INSERT INTO inventory(stock, make, model, year, status) VALUES(:stock, :make, :model,
-										:year, :updatedBy, :status)";
+    $sql = "INSERT INTO inventory(stock, make, model, year, status) VALUES(:stock, :make, :model, :year,  :status)";
     //2. prepare the statement
     $statement = $dbh -> prepare($sql);
     //3. bind parameters
