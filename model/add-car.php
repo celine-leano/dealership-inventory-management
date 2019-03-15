@@ -4,7 +4,7 @@
  * 3/7/2019
  * 328/final-project/model/add-car.php
  *
- * This files validates the input fields needed to create a car object;
+ * This files validates the input fields needed to create a car object.
  */
 //global $f3 variable
 global $f3;
@@ -82,8 +82,7 @@ if(!empty($_POST))
     //check status
     if(isset($_POST['status']))
     {
-        $status = $_POST['status'];
-        $_SESSION['status'] = $status;
+        $_SESSION['status'] = 'Added';
     }
     // check name
     if(isset($_POST['name']))
@@ -100,6 +99,9 @@ if(!empty($_POST))
 }
 if($isValid)
 {
+    //check if checkbox is selected
+    //create object
+    $newCar = new CarInfo($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'],
+            $_SESSION['status']);
     addCar($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'], $_SESSION['status']);
-    echo "Success - new car added.";
 }
