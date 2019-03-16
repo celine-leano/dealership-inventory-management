@@ -161,19 +161,44 @@ function getCars()
     return $results;
 }
 
-
 /**
- * This method updates the status of a car given a stock number.
+ * This method updates the status of a car using the default information
  *
  * @param $stock
  * @param $status
  *
  * @return bool
  */
-function updateStatus($stock, $make, $model, $year, $status, $updatedBy, $notes, $budget)
+function updateDefaultInfo($stock, $make, $model, $year, $status, $updatedBy)
 {
     global $dbh;
-    $sql = "INSERT stock, make, model, year, status, updatedBy, notes, budget INTO inventory
+    $sql = "INSERT INTO inventory (stock, make, model, year, status, updatedBy) 
+            VALUES (:stock, :make, :model, :year, :status, :updatedBy)";
+    $statement = $dbh -> prepare($sql);
+    //bind parameters
+    $statement -> bindParam(':stock', $stock, PDO::PARAM_STR);
+    $statement -> bindParam(':make', $make, PDO::PARAM_STR);
+    $statement -> bindParam(':model', $model, PDO::PARAM_STR);
+    $statement -> bindParam(':year', $year, PDO::PARAM_STR);
+    $statement -> bindParam(':status', $status, PDO::PARAM_STR);
+    $statement -> bindParam(':updatedBy', $updatedBy, PDO::PARAM_STR);
+
+    return $statement -> execute();
+}
+
+
+/**
+ * This method updates the status of a car when choosing to add additional information
+ *
+ * @param $stock
+ * @param $status
+ *
+ * @return bool
+ */
+function updateAdditionalInfo($stock, $make, $model, $year, $status, $updatedBy, $notes, $budget)
+{
+    global $dbh;
+    $sql = "INSERT INTO inventory (stock, make, model, year, status, updatedBy, notes, budget) 
             VALUES (:stock, :make, :model, :year, :status, :updatedBy, :notes, :budget)";
     $statement = $dbh -> prepare($sql);
     //bind parameters

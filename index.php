@@ -52,7 +52,8 @@ $f3 -> route('GET|POST /login', function($f3)
 $f3 -> route('GET|POST /stock', function($f3)
 {
     $f3 -> set("title", "Enter Stock Number");
-    $_SESSION = [];
+    // clear the session
+    $_SESSION = array();
     require("model/employee-stock-validation.php");
     $template = new Template();
     echo $template -> render("views/stock.html");

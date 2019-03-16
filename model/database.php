@@ -1,6 +1,6 @@
 <?php
 /**
- * This is the main car class used to create an Inventory Management System.
+ * This is the database class that requires the database
  *
  * @author   Celine Leano
  * @author   Adolfo Gonzalez
@@ -29,7 +29,7 @@
  ***************************************************************************
  */
 // Connect to Inventory Database
-require_once('/home/agonzale/config.php');
+require_once('/home/cleanogr/config.php');
 /**
  * This method connect to the inventory database.
  *

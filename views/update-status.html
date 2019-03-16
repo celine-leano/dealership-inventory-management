@@ -108,6 +108,21 @@ View to input stock number after logging in
 							</check>
 						</div>
 						<hr>
+
+						<!-- error message -->
+						<check if="{{ isset(@updateSuccess) }}">
+							<div class="alert alert-success" role="alert">
+								{{ @updateSuccess }}
+							</div>
+						</check>
+
+						<!-- error message -->
+						<check if="{{ isset(@errorUpdate) }}">
+							<div class="alert alert-danger" role="alert">
+								{{ @errorUpdate }}
+							</div>
+						</check>
+
 						<div class="row">
 							<check if="{{ @stock['status'] == 'Sold' }}">
 								<div class="text-center">
@@ -146,7 +161,7 @@ View to input stock number after logging in
 										<div class="form-label-group">
 											<label class="col-form-label">Name / Department</label>
 											<input type="text" id="employee" name="employee"
-													class="form-control">
+													class="form-control" value="{{ @employee }}">
 										</div>
 										
 										<div class="form-label-group">
@@ -170,9 +185,6 @@ View to input stock number after logging in
 						
 						<div class="text-center">
 							<hr>
-							<a onclick="goBack()"
-									class="btn btn-md btn-primary text-uppercase text-white">Back
-							</a>
 							<a href="stock"
 									class="btn btn-md btn-secondary text-uppercase">Search For a Different
 								Vehicle
