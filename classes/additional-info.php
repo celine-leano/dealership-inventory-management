@@ -15,20 +15,23 @@ class AdditionalInfo extends CarInfo
     private $_notes;
     private $_budget;
 
+
     /**
      * AdditionalInfo constructor.
      *
-     * @param $stock stock number
-     * @param $year year car was manufactured
-     * @param $make car make
-     * @param $model car model
+     * @param $stock  stock number
+     * @param $year   year car was manufactured
+     * @param $make   car make
+     * @param $model  car model
      * @param $status department that the car completed last
+     * @param $notes
+     * @param $budget
      */
-    function __construct($stock,$year,$make,$model,$status,$updatedBy,$notes,$budget)
+    function __construct($stock, $year, $make, $model, $status, $updatedBy, $notes, $budget)
     {
-        parent::__construct($stock,$year,$make,$model,$status,$updatedBy);
-        $this->_notes = $notes;
-        $this->_budget = $budget;
+        parent ::__construct($stock, $year, $make, $model, $status, $updatedBy);
+        $this -> _notes = $notes;
+        $this -> _budget = $budget;
     }
 
 

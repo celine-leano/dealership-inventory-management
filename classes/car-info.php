@@ -29,6 +29,7 @@ class CarInfo
      * @param $_model
      * @param $_year
      * @param $_status
+     * @param $_updatedBy
      */
     public function __construct($_stock, $_make, $_model, $_year, $_status, $_updatedBy)
     {
@@ -171,6 +172,7 @@ class CarInfo
 
         return $this;
     }
+
 
     /**
      * Gets the employee / department
