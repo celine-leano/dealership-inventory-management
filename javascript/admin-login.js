@@ -8,6 +8,21 @@
 	 * File: admin-login.php
  */
 
+// go back a page
+function goBack() {
+    window.history.back();
+}
+
+// toggles div with 'notes' and 'budget'
+$(":checkbox").on("click", function () {
+    if ($(this).prop("checked")) {
+        $("#additional").show();
+    } else {
+        $("#additional").hide();
+    }
+});
+
+
 //variable fields
 var username = document.getElementById("username");
 var password = document.getElementById("password");
@@ -77,3 +92,4 @@ password.onkeyup = function () {
     }
 
 };
+
