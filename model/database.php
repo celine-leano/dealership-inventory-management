@@ -29,7 +29,7 @@
  ***************************************************************************
  */
 // Connect to Inventory Database
-require_once('/home/cleanogr/config.php');
+require_once('/home/agonzale/config.php');
 /**
  * This method connect to the inventory database.
  *

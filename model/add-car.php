@@ -96,12 +96,27 @@ if(!empty($_POST))
         $notes = $_POST['notes'];
         $_SESSION['notes'] = $notes;
     }
+    //check budget
+    if(isset($_POST['budget']))
+    {
+        $budget = $_POST['budget'];
+        $_SESSION['budget'] = $notes;
+    }
 }
 if($isValid)
 {
     //check if checkbox is selected
+    if(($notes && $budget) == '')
+    {
+        //create object
+        $newCar = new AdditionalInfo($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'],
+                $_SESSION['status'], $_SESSION['name'], $_SESSION['notes'], $_SESSION['budget']);
+        addCar($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'], $_SESSION['status'],
+                $_SESSION['name'], $_SESSION['notes'], $_SESSION['budget']);
+    }
     //create object
     $newCar = new CarInfo($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'],
-            $_SESSION['status']);
-    addCar($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'], $_SESSION['status']);
+            $_SESSION['status'], $_SESSION['name']);
+    addCar($_SESSION['stock'], $_SESSION['make'], $_SESSION['model'], $_SESSION['year'], $_SESSION['status'],
+            $_SESSION['name']);
 }
