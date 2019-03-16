@@ -18,6 +18,7 @@ class CarInfo
     private $_make;
     private $_model;
     private $_status;
+    private $_updatedBy;
 
 
     /**
@@ -29,13 +30,14 @@ class CarInfo
      * @param $_year
      * @param $_status
      */
-    public function __construct($_stock, $_make, $_model, $_year, $_status)
+    public function __construct($_stock, $_make, $_model, $_year, $_status, $_updatedBy)
     {
         $this -> _stock = $_stock;
         $this -> _make = $_make;
         $this -> _model = $_model;
         $this -> _year = $_year;
         $this -> _status = $_status;
+        $this -> _updatedBy = $_updatedBy;
     }
 
 
@@ -141,9 +143,6 @@ class CarInfo
     public function setModel($model)
     {
         $this -> _model = $model;
-
-
-        return $this;
     }
 
 
@@ -171,5 +170,26 @@ class CarInfo
 
 
         return $this;
+    }
+
+    /**
+     * Gets the employee / department
+     *
+     * @return mixed
+     */
+    public function getUpdatedBy()
+    {
+        return $this -> _updatedBy;
+    }
+
+
+    /**
+     * Sets the employee / department
+     *
+     * @param mixed $updatedBy
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this -> _updatedBy = $updatedBy;
     }
 }

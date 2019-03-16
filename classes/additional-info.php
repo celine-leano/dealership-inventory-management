@@ -7,7 +7,7 @@
  * @author   Adolfo Gonzalez
  * @version  1.0
  *
- * File: 328/final-project/classes/car-type.php
+ * File: 328/final-project/classes/additional-info.php
  */
 class AdditionalInfo extends CarInfo
 {
@@ -15,17 +15,20 @@ class AdditionalInfo extends CarInfo
     private $_notes;
     private $_budget;
 
-
     /**
-     * CarInfo constructor.
+     * AdditionalInfo constructor.
      *
-     * @param $_notes
-     * @param $_budget
+     * @param $stock stock number
+     * @param $year year car was manufactured
+     * @param $make car make
+     * @param $model car model
+     * @param $status department that the car completed last
      */
-    public function __construct($_notes, $_budget)
+    function __construct($stock,$year,$make,$model,$status,$updatedBy,$notes,$budget)
     {
-        $this -> _notes = $_notes;
-        $this -> _budget = $_budget;
+        parent::__construct($stock,$year,$make,$model,$status,$updatedBy);
+        $this->_notes = $notes;
+        $this->_budget = $budget;
     }
 
 
