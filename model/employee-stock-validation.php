@@ -37,7 +37,7 @@
             {
                 $_SESSION['stockNum'] = $stock;
                 $_SESSION['stock'] = $success;
-                $f3 -> reroute("vehicle-info");
+                $f3 -> reroute("employee/vehicle-info");
             }
             else
             {

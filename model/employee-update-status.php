@@ -89,7 +89,7 @@
             }
 
             if ($success) {
-                $f3->set("updateSuccess", "Vehicle has been successfully updated!");
+                $f3->reroute("employee/updated");
             }
         }
     }

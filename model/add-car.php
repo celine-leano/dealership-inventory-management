@@ -21,6 +21,7 @@ if (!empty($_POST)) {
             $isValid = FALSE;
         } else if (dupeStock($stock)) {
             $f3->set("errorStock", "Vehicle with this stock number already exists");
+            $isValid = FALSE;
         } else if (strlen($stock) != 4) {
             // check if input is 4 numbers
             $f3->set("errorStock", "Stock is a 4 digit number.");
@@ -88,7 +89,7 @@ if (!empty($_POST)) {
     if ($isValid) {
         if (isset($notes) && !isset($budget)) {
             // create an AdditionalInfo object with budget as null
-            $carWithMoreInfo = new AdditionalInfo($stock,$make,$model,$year,"Inventoried",$updatedBy,$notes,null);
+            $car = new AdditionalInfo($stock,$make,$model,$year,"Inventoried",$updatedBy,$notes,null);
         } else if (isset($notes) && !isset($budget)) {
             $car = new AdditionalInfo($stock,$make,$model,$year,"Inventoried",$updatedBy,null,$budget);
         } else if (isset($budget) && isset($notes)) {
@@ -109,11 +110,10 @@ if (!empty($_POST)) {
         }
 
         if ($success) {
-            $f3->set("updateSuccess", "Vehicle has been successfully updated!");
+            $f3->reroute("admin/add-success");
 
             // clear dupe stock number error msg
             $f3->set("errorStock", null);
-
         }
     }
 }

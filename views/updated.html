@@ -1,0 +1,142 @@
+<!--
+Celine Leano and Adolfo Gonzalez
+2/10/2019
+328/final-project/views/updated.html
+Employee login screen
+-->
+<include href="views/head.html"></include>
+<body class="bg-light">
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-sm-9 col-lg-6 mx-auto">
+            <div class="card my-5">
+                <div class="card-header bg-light">
+                    <a href="../logout"><< Logout</a>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="card-title text-center text-uppercase">NEW STATUS FOR</h5>
+                    <h2 class="card-title text-center">{{ @stock['year'] }} {{ @stock['make'] }}
+                        {{ @stock['model'] }}
+                    </h2>
+
+                    <hr>
+
+                    <!-- success message -->
+                    <div class="alert alert-success" role="alert">
+                        Vehicle status has been successfully updated!
+                    </div>
+
+                    <div class="text-center">
+                        <b class="text-success">{{ @stock['status'] }}</b>
+                        by {{ @stock['updatedBy'] }}
+                        <br>
+                    </div>
+
+                    <div class="progress">
+                        <check if="{{ @stock['status'] == 'Inventoried' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 10%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Inspection' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 15%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Service' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 20%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Paint' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 25%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Reconditioning' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 30%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Waiting For Parts' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 40%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Detail' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 50%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Photo Area' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 60%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Ready For Sale' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 70%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Sales' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 85%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Wash' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 90%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Sold' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 100%"></div>
+                        </check>
+                        <check if="{{ @stock['status'] == 'Wholesale' }}">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                 role="progressbar"
+                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 100%"></div>
+                        </check>
+                    </div>
+                    <hr>
+
+                    <!-- success message -->
+                    <check if="{{ isset(@updateSuccess) }}">
+                        <div class="alert alert-success" role="alert">
+                            {{ @updateSuccess }}
+                        </div>
+                    </check>
+
+                    <div class="text-center">
+                        <hr>
+                        <a href="stock"
+                           class="btn btn-md btn-secondary text-uppercase">Search For a Different
+                            Vehicle
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="javascript/additional-info.js"></script>
+</html>

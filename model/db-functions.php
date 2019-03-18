@@ -206,7 +206,7 @@ function removeCar($stock)
 function dupeStock($stock)
 {
     global $dbh;
-    $sql = "SELECT stock FROM inventory WHERE stock = '$stock'";
+    $sql = "SELECT * FROM inventory WHERE stock = '$stock'";
     $statement = $dbh->prepare($sql);
     return $statement->execute();
 }

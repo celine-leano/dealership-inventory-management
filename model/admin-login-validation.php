@@ -31,7 +31,7 @@ if (!empty($_POST)) {
         $password = SHA1($password);
         $success = adminLogin($username, $password);
         if ($success) {
-            $_SESSION['username'] = $username;
+            $_SESSION['user'] = $username;
             $f3->reroute("admin/tools");
         } else {
             $f3->set("errorAdminLogin", "Username and/or password is incorrect");

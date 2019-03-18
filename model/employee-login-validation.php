@@ -43,7 +43,8 @@
             $success = employeeLogin($username, $password);
             if($success)
             {
-                $f3 -> reroute("stock");
+                $_SESSION['user'] = $username;
+                $f3 -> reroute("employee/stock");
             }
             else
             {
