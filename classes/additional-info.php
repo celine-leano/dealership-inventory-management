@@ -1,7 +1,6 @@
 <?php
-
-
-/** This class is optional but extend the Car class and allows to create notes and budget for a car object.
+/** This class is optional: extends the CarInfo class and allows to create notes and budget
+ *  for an object.
  *
  * @author   Celine Leano
  * @author   Adolfo Gonzalez
@@ -15,66 +14,61 @@ class AdditionalInfo extends CarInfo
     private $_notes;
     private $_budget;
 
-
     /**
-     * AdditionalInfo constructor.
+     * AdditionalInfo constructor
      *
-     * @param $stock  stock number
-     * @param $year   year car was manufactured
-     * @param $make   car make
-     * @param $model  car model
-     * @param $status department that the car completed last
+     * @param $stock
+     * @param $year
+     * @param $make
+     * @param $model
+     * @param $status
      * @param $notes
      * @param $budget
      */
     function __construct($stock, $year, $make, $model, $status, $updatedBy, $notes, $budget)
     {
-        parent ::__construct($stock, $year, $make, $model, $status, $updatedBy);
-        $this -> _notes = $notes;
-        $this -> _budget = $budget;
+        parent::__construct($stock, $year, $make, $model, $status, $updatedBy);
+        $this->_notes = $notes;
+        $this->_budget = $budget;
     }
 
-
     /**
-     * Gets notes related to car info.
+     * Gets notes related to car info
      *
      * @return mixed notes
      */
     function getNotes()
     {
-        return $this -> _notes;
+        return $this->_notes;
     }
 
-
     /**
-     * Sets notes about the car.
+     * Sets notes about the car
      *
-     * @param $notes set note
+     * @param $notes
      */
     function setNotes($notes)
     {
-        $this -> _notes = $notes;
+        $this->_notes = $notes;
     }
-
 
     /**
      * Gets budget for car
      *
-     * @return mixed gets budget
+     * @return mixed
      */
     function getBudget()
     {
-        return $this -> _budget;
+        return $this->_budget;
     }
 
-
     /**
-     * Sets budget.
+     * Sets budget
      *
      * @param $budget set budget
      */
     function setBudget($budget)
     {
-        $this -> _budget = $budget;
+        $this->_budget = $budget;
     }
 }

@@ -1,8 +1,6 @@
 <?php
-
-
 /**
- * This is the main car class used to create an Inventory Management System.
+ * An object that stores car information
  *
  * @author   Celine Leano
  * @author   Adolfo Gonzalez
@@ -20,9 +18,8 @@ class CarInfo
     private $_status;
     private $_updatedBy;
 
-
     /**
-     * Car constructor.
+     * Car constructor
      *
      * @param $_stock
      * @param $_make
@@ -33,28 +30,26 @@ class CarInfo
      */
     public function __construct($_stock, $_make, $_model, $_year, $_status, $_updatedBy)
     {
-        $this -> _stock = $_stock;
-        $this -> _make = $_make;
-        $this -> _model = $_model;
-        $this -> _year = $_year;
-        $this -> _status = $_status;
-        $this -> _updatedBy = $_updatedBy;
+        $this->_stock = $_stock;
+        $this->_make = $_make;
+        $this->_model = $_model;
+        $this->_year = $_year;
+        $this->_status = $_status;
+        $this->_updatedBy = $_updatedBy;
     }
 
-
     /**
-     * Gets stock number.
+     * Gets stock number
      *
      * @return mixed
      */
     public function getStock()
     {
-        return $this -> _stock;
+        return $this->_stock;
     }
 
-
     /**
-     * Sets Stock number.
+     * Sets stock number
      *
      * @param mixed $stock
      *
@@ -62,39 +57,31 @@ class CarInfo
      */
     public function setStock($stock)
     {
-        $this -> _stock = $stock;
-
-
+        $this->_stock = $stock;
         return $this;
     }
 
-
     /**
-     * Gets year.
+     * Gets year
      *
      * @return mixed
      */
     public function getYear()
     {
-        return $this -> _year;
+        return $this->_year;
     }
 
-
     /**
-     * Sets year.
+     * Sets year
      *
      * @param mixed $year
-     *
      * @return CarInfo
      */
     public function setYear($year)
     {
-        $this -> _year = $year;
-
-
+        $this->_year = $year;
         return $this;
     }
-
 
     /**
      * Gets make of car.
@@ -103,25 +90,20 @@ class CarInfo
      */
     public function getMake()
     {
-        return $this -> _make;
+        return $this->_make;
     }
-
 
     /**
      * Sets make of car.
      *
      * @param mixed $make
-     *
      * @return CarInfo
      */
     public function setMake($make)
     {
-        $this -> _make = $make;
-
-
+        $this->_make = $make;
         return $this;
     }
-
 
     /**
      * Gets car model
@@ -130,22 +112,19 @@ class CarInfo
      */
     public function getModel()
     {
-        return $this -> _model;
+        return $this->_model;
     }
-
 
     /**
      * Sets car model.
      *
      * @param mixed $model
-     *
      * @return CarInfo
      */
     public function setModel($model)
     {
-        $this -> _model = $model;
+        $this->_model = $model;
     }
-
 
     /**
      * Gets car status.
@@ -154,25 +133,20 @@ class CarInfo
      */
     public function getStatus()
     {
-        return $this -> _status;
+        return $this->_status;
     }
-
 
     /**
      * Sets car status.
      *
      * @param mixed $status
-     *
      * @return CarInfo
      */
     public function setStatus($status)
     {
-        $this -> _status = $status;
-
-
+        $this->_status = $status;
         return $this;
     }
-
 
     /**
      * Gets the employee / department
@@ -181,9 +155,8 @@ class CarInfo
      */
     public function getUpdatedBy()
     {
-        return $this -> _updatedBy;
+        return $this->_updatedBy;
     }
-
 
     /**
      * Sets the employee / department
@@ -192,6 +165,6 @@ class CarInfo
      */
     public function setUpdatedBy($updatedBy)
     {
-        $this -> _updatedBy = $updatedBy;
+        $this->_updatedBy = $updatedBy;
     }
 }
