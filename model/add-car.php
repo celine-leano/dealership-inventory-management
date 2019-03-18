@@ -16,15 +16,19 @@ if (!empty($_POST)) {
     // check that stock is numeric
     if (!empty($_POST['stock'])) {
         $stock = $_POST['stock'];
+
+        $success = searchStockNum($stock);
+        if ($success) {
+            $f3->set("errorStock", "Vehicle with this stock number already exists");
+            $isValid = FALSE;
+        }
+
         if (!is_numeric($stock)) {
             $f3->set("errorStock", "Only use numbers for stock.");
             $isValid = FALSE;
-        } else if (dupeStock($stock)) {
-            $f3->set("errorStock", "Vehicle with this stock number already exists");
-            $isValid = FALSE;
         } else if (strlen($stock) != 4) {
             // check if input is 4 numbers
-            $f3->set("errorStock", "Stock is a 4 digit number.");
+            $f3->set("errorStock", "Stock is a 4 digit number");
             $isValid = FALSE;
         }
     } else {
@@ -73,15 +77,15 @@ if (!empty($_POST)) {
 
     // if additional info is checked, check notes for input
     if (!empty($_POST['info'])) {
-        // check notes
-        if (empty($_POST['notes'])) {
-            $f3->set("errorNotes", "'Notes' cannot be empty if 'Additional Information' is checked");
+        // check if all additional fields are left empty
+        if (empty($_POST['notes']) && empty($_POST['budget'])) {
+            $f3->set("errorNotes", "'Notes' and 'Budget' cannot be empty if 'Additional Information' is checked");
             $isValid = false;
-        } else {
+        } else if (!empty($_POST['notes'])) {
+            // add notes if notes have input
             $notes = $_POST['notes'];
-        }
-        //check budget
-        if (!empty($_POST['budget'])) {
+        } else if (!empty($_POST['budget'])) {
+            // add budget if budget has input
             $budget = $_POST['budget'];
         }
     }

@@ -81,8 +81,9 @@ $f3->route('GET|POST /employee/update-status', function ($f3) {
 // define route for successful update
 $f3->route('GET|POST /employee/updated', function ($f3) {
     $f3->set("title", "Updated!");
-    $stock = $_SESSION['stock'];
-    $f3->set("stock", $stock);
+    $stockNum = $_SESSION['stockNum'];
+    $car = searchStockNum($stockNum);
+    $f3->set("car", $car);
 
     $template = new Template();
     echo $template->render('views/updated.html');
@@ -132,6 +133,16 @@ $f3->route('GET|POST /admin/add-success', function ($f3) {
     //new template
     $template = new Template();
     echo $template->render("views/admin-car-added.html");
+});
+// define route to admin add car
+$f3->route('GET|POST /admin/remove', function ($f3) {
+    require('model/check-for-login.php');
+    //set title
+    $f3->set("title", "Admin - Remove a Vehicle");
+
+    //new template
+    $template = new Template();
+    echo $template->render("views/admin-remove.html");
 });
 // define route to logout
 $f3->route('GET|POST /logout', function ($f3) {

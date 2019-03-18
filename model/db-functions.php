@@ -58,7 +58,7 @@ function employeeLogin($username, $password)
 
 
 /**
- * This function allows the user to search by stock number.
+ * Looks up stock number in database
  *
  * @param $stock
  *
@@ -200,13 +200,5 @@ function removeCar($stock)
 
 
     //4. statement execute
-    return $statement->execute();
-}
-
-function dupeStock($stock)
-{
-    global $dbh;
-    $sql = "SELECT * FROM inventory WHERE stock = '$stock'";
-    $statement = $dbh->prepare($sql);
     return $statement->execute();
 }

@@ -70,25 +70,20 @@
                 // create an AdditionalInfo object
                 $car = new AdditionalInfo($stockNum,$make,$model,$year,$status,$updatedBy,$notes,$budget);
 
-                // change progress bar info and insert into database
-                $stock['status'] = $status;
-                $stock['updatedBy'] = $updatedBy;
-
+                //insert into database
                 $success = addAdditionalInfo($car->getStock(), $car->getMake(), $car->getModel(),
                     $car->getYear(), $car->getStatus(), $car->getUpdatedBy(), $car->getNotes(), $car->getBudget());
             } else {
                 // create a CarInfo object
                 $car = new CarInfo($stockNum,$make,$model,$year,$status,$updatedBy);
 
-                // change progress bar info and insert into database
-                $stock['status'] = $status;
-                $stock['updatedBy'] = $updatedBy;
-
+                // insert into database
                 $success = addDefaultInfo($car->getStock(), $car->getMake(), $car->getModel(),
                     $car->getYear(), $car->getStatus(), $car->getUpdatedBy());
             }
 
             if ($success) {
+                $_SESSION['stock'] = $success;
                 $f3->reroute("employee/updated");
             }
         }
