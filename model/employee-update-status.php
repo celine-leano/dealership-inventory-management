@@ -74,7 +74,7 @@
                 $stock['status'] = $status;
                 $stock['updatedBy'] = $updatedBy;
 
-                $success = updateAdditionalInfo($car->getStock(), $car->getMake(), $car->getModel(),
+                $success = addAdditionalInfo($car->getStock(), $car->getMake(), $car->getModel(),
                     $car->getYear(), $car->getStatus(), $car->getUpdatedBy(), $car->getNotes(), $car->getBudget());
             } else {
                 // create a CarInfo object
@@ -84,7 +84,7 @@
                 $stock['status'] = $status;
                 $stock['updatedBy'] = $updatedBy;
 
-                $success = updateDefaultInfo($car->getStock(), $car->getMake(), $car->getModel(),
+                $success = addDefaultInfo($car->getStock(), $car->getMake(), $car->getModel(),
                     $car->getYear(), $car->getStatus(), $car->getUpdatedBy());
             }
 

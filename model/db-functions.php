@@ -19,14 +19,13 @@ function adminLogin($username, $password)
     //1. Define query
     $sql = "SELECT * FROM logins WHERE username = '$username' and password = '$password'";
     //2. Prepare statement
-    $statement = $dbh -> prepare($sql);
+    $statement = $dbh->prepare($sql);
     //execute
-    $statement -> execute();
+    $statement->execute();
     //fetch password
-    $result = $statement -> fetchColumn(1);
+    $result = $statement->fetchColumn(1);
     //compare results and return true if match
-    if($result === $password)
-    {
+    if ($result === $password) {
         return TRUE;
     }
 
@@ -49,9 +48,9 @@ function employeeLogin($username, $password)
     global $dbh;
     $sql = "SELECT * FROM logins WHERE username = '$username'
             AND password = SHA1('$password')";
-    $statement = $dbh -> prepare($sql);
-    $statement -> execute();
-    $result = $statement -> fetch(PDO::FETCH_ASSOC);
+    $statement = $dbh->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
 
 
     return $result;
@@ -74,9 +73,9 @@ function searchStockNum($stock)
         FROM inventory s2
         WHERE s1.stock = s2.stock
         AND stock = '$stock')";
-    $statement = $dbh -> prepare($sql);
-    $statement -> execute();
-    $result = $statement -> fetch();
+    $statement = $dbh->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetch();
 
 
     return $result;
@@ -94,45 +93,13 @@ function getHistory($stock)
 {
     global $dbh;
     $sql = "SELECT * FROM inventory WHERE stock = '$stock' ORDER BY timestamp DESC";
-    $statement = $dbh -> prepare($sql);
-    $statement -> execute();
-    $results = $statement -> fetchAll();
+    $statement = $dbh->prepare($sql);
+    $statement->execute();
+    $results = $statement->fetchAll();
 
 
     return $results;
 }
-
-
-/**
- * This method creates a new car object with the given parameters.
- *
- * @param $stock
- * @param $make
- * @param $model
- * @param $year
- * @param $status
- *
- * @return bool
- */
-function addCar($stock, $make, $model, $year, $status)
-{
-    global $dbh;
-    //1. define query
-    $sql = "INSERT INTO inventory(stock, make, model, year, status) VALUES(:stock, :make, :model, :year,  :status)";
-    //2. prepare the statement
-    $statement = $dbh -> prepare($sql);
-    //3. bind parameters
-    $statement -> bindParam(':stock', $stock, PDO::PARAM_STR);
-    $statement -> bindParam(':make', $make, PDO::PARAM_STR);
-    $statement -> bindParam(':model', $model, PDO::PARAM_STR);
-    $statement -> bindParam(':year', $year, PDO::PARAM_STR);
-    $statement -> bindParam(':status', $status, PDO::PARAM_STR);
-
-
-    //4. execute
-    return $statement -> execute();
-}
-
 
 /**
  * This method returns all cars in the database.
@@ -150,11 +117,11 @@ function getCars()
             FROM inventory i2 WHERE i1.stock = i2.stock)
             AND i1.active=1 ORDER BY timestamp desc";
     //3. prepare statement
-    $statement = $dbh -> prepare($sql);
+    $statement = $dbh->prepare($sql);
     //4. execute statement
-    $statement -> execute();
+    $statement->execute();
     //get results
-    $results = $statement -> fetchAll(PDO::FETCH_ASSOC);
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
     //return results
@@ -169,21 +136,21 @@ function getCars()
  *
  * @return bool
  */
-function updateDefaultInfo($stock, $make, $model, $year, $status, $updatedBy)
+function addDefaultInfo($stock, $make, $model, $year, $status, $updatedBy)
 {
     global $dbh;
     $sql = "INSERT INTO inventory (stock, make, model, year, status, updatedBy) 
             VALUES (:stock, :make, :model, :year, :status, :updatedBy)";
-    $statement = $dbh -> prepare($sql);
+    $statement = $dbh->prepare($sql);
     //bind parameters
-    $statement -> bindParam(':stock', $stock, PDO::PARAM_STR);
-    $statement -> bindParam(':make', $make, PDO::PARAM_STR);
-    $statement -> bindParam(':model', $model, PDO::PARAM_STR);
-    $statement -> bindParam(':year', $year, PDO::PARAM_STR);
-    $statement -> bindParam(':status', $status, PDO::PARAM_STR);
-    $statement -> bindParam(':updatedBy', $updatedBy, PDO::PARAM_STR);
+    $statement->bindParam(':stock', $stock, PDO::PARAM_STR);
+    $statement->bindParam(':make', $make, PDO::PARAM_STR);
+    $statement->bindParam(':model', $model, PDO::PARAM_STR);
+    $statement->bindParam(':year', $year, PDO::PARAM_STR);
+    $statement->bindParam(':status', $status, PDO::PARAM_STR);
+    $statement->bindParam(':updatedBy', $updatedBy, PDO::PARAM_STR);
 
-    return $statement -> execute();
+    return $statement->execute();
 }
 
 
@@ -195,49 +162,25 @@ function updateDefaultInfo($stock, $make, $model, $year, $status, $updatedBy)
  *
  * @return bool
  */
-function updateAdditionalInfo($stock, $make, $model, $year, $status, $updatedBy, $notes, $budget)
+function addAdditionalInfo($stock, $make, $model, $year, $status, $updatedBy, $notes, $budget)
 {
     global $dbh;
     $sql = "INSERT INTO inventory (stock, make, model, year, status, updatedBy, notes, budget) 
             VALUES (:stock, :make, :model, :year, :status, :updatedBy, :notes, :budget)";
-    $statement = $dbh -> prepare($sql);
+    $statement = $dbh->prepare($sql);
     //bind parameters
-    $statement -> bindParam(':stock', $stock, PDO::PARAM_STR);
-    $statement -> bindParam(':make', $make, PDO::PARAM_STR);
-    $statement -> bindParam(':model', $model, PDO::PARAM_STR);
-    $statement -> bindParam(':year', $year, PDO::PARAM_STR);
-    $statement -> bindParam(':status', $status, PDO::PARAM_STR);
-    $statement -> bindParam(':updatedBy', $updatedBy, PDO::PARAM_STR);
-    $statement -> bindParam(':notes', $notes, PDO::PARAM_STR);
-    $statement -> bindParam(':budget', $budget, PDO::PARAM_STR);
+    $statement->bindParam(':stock', $stock, PDO::PARAM_STR);
+    $statement->bindParam(':make', $make, PDO::PARAM_STR);
+    $statement->bindParam(':model', $model, PDO::PARAM_STR);
+    $statement->bindParam(':year', $year, PDO::PARAM_STR);
+    $statement->bindParam(':status', $status, PDO::PARAM_STR);
+    $statement->bindParam(':updatedBy', $updatedBy, PDO::PARAM_STR);
+    $statement->bindParam(':notes', $notes, PDO::PARAM_STR);
+    $statement->bindParam(':budget', $budget, PDO::PARAM_STR);
 
 
-    return $statement -> execute();
+    return $statement->execute();
 }
-
-
-/**
- * This method updates notes given a stock number.
- *
- * @param $stock
- * @param $notes
- *
- * @return bool
- */
-function updateNotes($stock, $notes)
-{
-    //1. connect to database
-    global $dbh;
-    //2. define query
-    $sql = "UPDATE  inventory SET notes = '$notes' WHERE stock = '$stock'";
-    //3. prepare statement
-    $statement = $dbh -> prepare($sql);
-
-
-    //4. statement execute
-    return $statement -> execute();
-}
-
 
 /**
  * This method removes a car from the database given a stock number.
@@ -253,9 +196,17 @@ function removeCar($stock)
     //2. define query
     $sql = "UPDATE  inventory SET status  = 0 WHERE stock = '$stock'";
     //3. prepare statement
-    $statement = $dbh -> prepare($sql);
+    $statement = $dbh->prepare($sql);
 
 
     //4. statement execute
-    return $statement -> execute();
+    return $statement->execute();
+}
+
+function dupeStock($stock)
+{
+    global $dbh;
+    $sql = "SELECT stock FROM inventory WHERE stock = '$stock'";
+    $statement = $dbh->prepare($sql);
+    return $statement->execute();
 }

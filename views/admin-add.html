@@ -6,74 +6,104 @@ Admin Add Tool - adds a new car to the dealership roster
 -->
 <include href="views/head.html"></include>
 
-<body class="bg-light m-auto">
-	<div class="container border bg-white">
-		
-		<h1 class="text-center m-3">Add a Vehicle</h1>
-		<hr>
-		
-		<form action="#" method="post">
-			<div class="form-row p-3">
-				<div class="col-md-6">
-					<div class="form-group m-2">
-						<h3 class="m-2">Information</h3>
-						<br>
-						<label class="control-label" for="stock">Stock #:</label>
-						<input type="text" class="form-control input" id="stock"
-								placeholder="Stock Number" name="stock">
-						
-						<label class="control-label" for="year">Year:</label>
-						<input type="text" class="form-control" id="year" placeholder="Year"
-								name="year">
-						
-						<label class="control-label" for="make">Make:</label>
-						<input type="text" class="form-control" id="make" placeholder="Make"
-								name="make">
-						
-						<label class="control-label" for="make">Model:</label>
-						<input type="text" class="form-control" id="model" placeholder="Model"
-								name="model">
-					</div>
-				</div>
-				
-				<div class="col-md-6">
-					<div class="form-group m-2">
-						<h3 class="m-2">Employee</h3>
-						<br>
-						<label class="control-label" for="name">Employee Name:</label>
-						<input type="text" class="form-control" id="name"
-								placeholder="Employee Name" name="name">
-						<br>
-						
-						<div class="checkbox">
-							<label data-toggle="collapse" data-target="#additional"
-									aria-expanded="false" aria-controls="additional">
-								<input type="checkbox" />
-								Additional Info:
-							</label>
-							
-							<div id="additional" aria-expanded="false" class="collapse">
-								
-								<label class="col-form-label">Notes:</label>
-								<textarea class="form-control" rows="5"
-										placeholder="Notes"></textarea>
-								<br>
-								<label class="col-form-label">Budget:</label>
-								<input type="text" id="budget" name="budget"
-										class="form-control" placeholder="Budget">
-								<br>
-							</div>
-						</div>
-						
-						<!-- submit form -->
-						<button type="submit"
-								class="btn btn-primary float-lg-right t m-3">Submit
-						</button>
-					
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
+<body class="bg-light m-auto pt-4">
+<div class="container col-6 border bg-white">
+    <div class="row card">
+        <div class="card-header">
+            <a href="tools"><< Back</a>
+        </div>
+        <div class="card-body">
+            <h1 class="text-center">Add a Vehicle</h1>
+            <hr>
+
+            <!-- success message -->
+            <check if="{{ isset(@updateSuccess) }}">
+                <div class="alert alert-success" role="alert">
+                    {{ @updateSuccess }}
+                </div>
+            </check>
+
+            <form action="#" method="post">
+                <div class="form-row p-3">
+                    <div class="col-md-6">
+                        <div class="form-group m-2">
+                            <h3>Information</h3>
+                            <br>
+                            <label class="control-label" for="stock">Stock #</label>
+                            <input type="text" class="form-control input" id="stock"
+                                   placeholder="Stock Number" name="stock" value="{{ @POST['stock'] }}">
+                            <check if="{{ isset(@errorStock) }}">
+                                <span class="text-danger">{{ @errorStock }}</span><br>
+                            </check>
+
+                            <label class="control-label" for="year">Year</label>
+                            <input type="text" class="form-control" id="year" placeholder="Year"
+                                   name="year" value="{{ @POST['year'] }}">
+                            <check if="{{ isset(@errorYear) }}">
+                                <span class="text-danger">{{ @errorYear }}</span><br>
+                            </check>
+
+                            <label class="control-label" for="make">Make</label>
+                            <input type="text" class="form-control" id="make" placeholder="Make"
+                                   name="make" value="{{ @POST['make'] }}">
+                            <check if="{{ isset(@errorMake) }}">
+                                <span class="text-danger">{{ @errorMake }}</span><br>
+                            </check>
+
+                            <label class="control-label" for="make">Model</label>
+                            <input type="text" class="form-control" id="model" placeholder="Model"
+                                   name="model" value="{{ @POST['model'] }}">
+                            <check if="{{ isset(@errorModel) }}">
+                                <span class="text-danger">{{ @errorModel }}</span><br>
+                            </check>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group m-2">
+                            <h3>Updated By</h3>
+                            <br>
+                            <label class="control-label" for="name">Employee Name / Department</label>
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="Employee Name" name="name" value="{{ @POST['name'] }}">
+                            <check if="{{ isset(@errorName) }}">
+                                <span class="text-danger">{{ @errorName }}</span><br>
+                            </check>
+
+                            <div class="form-label-group pt-1">
+                                <input type="checkbox" name="info">&nbsp;Additional Info
+                            </div>
+                            <check if="{{ isset(@errorNotes) }}">
+                                <span class="text-danger">{{ @errorNotes }}</span><br>
+                            </check>
+
+                            <div name="additional" id="additional"
+                                 class="form-label-group">
+                                <label class="col-form-label">Notes</label>
+                                <input type="text" id="notes" name="notes"
+                                       class="form-control">
+
+                                <div class="form-label-group">
+                                    <label class="col-form-label">Budget (optional)</label>
+                                    <input type="text" id="budget" name="budget"
+                                           class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- submit form -->
+                            <button type="submit"
+                                    class="btn btn-primary float-lg-right">Submit
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="javascript/additional-info.js"></script>
 </html>
