@@ -2,14 +2,13 @@
 /**
  * Celine Leano and Adolfo Gonzalez
  * 2/10/2019
- * 328/final-project/model/login-validation.php
- * Fat-Free Routing
+ * 328/final-project/model/admin/login-validation.php
+ *
+ * Validates the admin login page
  */
-//route variable
 global $f3;
-// login flag for validation
 $isValid = TRUE;
-$f3->set("errorAdminLogin", NULL);
+
 if (!empty($_POST)) {
     //validate username and password field
     $username = $_POST['username'];
@@ -33,7 +32,12 @@ if (!empty($_POST)) {
 
         $success = login($username, $password);
         if ($success) {
+            // allow access to admin pages
             $_SESSION['user'] = $username;
+
+            // resets error messages
+            $f3->set("errorAdminLogin", NULL);
+
             $f3->reroute("admin/tools");
         } else {
             $f3->set("errorAdminLogin", "Password is incorrect");

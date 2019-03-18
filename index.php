@@ -49,8 +49,10 @@ $f3->route('GET|POST /login', function ($f3) {
 $f3->route('GET|POST /employee/stock', function ($f3) {
     require('model/check-for-login.php');
     $f3->set("title", "Enter Stock Number");
-    // clear the session
-    $_SESSION['stock'] = null;
+
+    // remove car variable from session
+    $_SESSION['car'] = null;
+
     require("model/employee/stock-validation.php");
     $template = new Template();
     echo $template->render("views/stock.html");
@@ -59,8 +61,8 @@ $f3->route('GET|POST /employee/stock', function ($f3) {
 $f3->route('GET|POST /employee/vehicle-info', function ($f3) {
     require('model/check-for-login.php');
     $f3->set("title", "Vehicle Information");
-    $stock = $_SESSION['stock'];
-    $f3->set("stock", $stock);
+    $car = $_SESSION['car'];
+    $f3->set("car", $car);
     $stockNum = $_SESSION['stockNum'];
     $history = getHistory($stockNum);
     $f3->set("history", $history);
@@ -71,10 +73,12 @@ $f3->route('GET|POST /employee/vehicle-info', function ($f3) {
 $f3->route('GET|POST /employee/update-status', function ($f3) {
     require('model/check-for-login.php');
     $f3->set("title", "Update Status");
-    $stock = $_SESSION['stock'];
-    $f3->set("stock", $stock);
+    $car = $_SESSION['car'];
+    $f3->set("car", $car);
+
     // get 'to do' list and validate update form
     require('model/employee/update-status.php');
+
     $template = new Template();
     echo $template->render('views/update-status.html');
 });

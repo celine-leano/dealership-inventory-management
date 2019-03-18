@@ -3,8 +3,7 @@
  * Celine Leano and Adolfo Gonzalez
  * 2/10/2019
  * 328/final-project/model/logout.html
- * Fat-Free Routing
+ * Ends the session to properly log a user out
  */
-//kill session on log out
 session_unset();
 session_destroy();

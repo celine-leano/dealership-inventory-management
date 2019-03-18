@@ -2,13 +2,12 @@
 /**
  * Celine Leano and Adolfo Gonzalez
  * 3/7/2019
- * 328/final-project2/model/login-validation.php
- * Validation for employee login page, and updates
+ * 328/final-project/model/employee/login-validation.php
+ * Validation for employee login page
  */
 global $f3;
-// login validation
 $isValid = TRUE;
-$f3->set("errorEmployeeLogin", NULL);
+
 if (!empty($_POST)) {
     // validate username and password field
     $username = $_POST['username'];
@@ -33,7 +32,12 @@ if (!empty($_POST)) {
         // in the database
         $success = login($username, $password);
         if ($success) {
+            // allow access to admin pages
             $_SESSION['user'] = $username;
+
+            // resets error messages
+            $f3->set("errorEmployeeLogin", NULL);
+
             $f3->reroute("employee/stock");
         } else {
             $f3->set("errorEmployeeLogin", "Password is incorrect");

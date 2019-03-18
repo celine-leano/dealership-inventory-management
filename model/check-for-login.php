@@ -8,8 +8,8 @@
 
 // prevents users from accessing page without logging in first
 if (empty($_SESSION['user'])) {
-header('Location: http://cleano.greenriverdev.com/328/final-project');
-exit;
+    header('Location: http://cleano.greenriverdev.com/328/final-project');
+    exit;
 } else {
-$user = $_SESSION['user'];
+    $user = $_SESSION['user'];
 }
