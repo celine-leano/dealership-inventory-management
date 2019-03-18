@@ -93,15 +93,15 @@ if (!empty($_POST)) {
     if ($isValid) {
         if (isset($notes) && !isset($budget)) {
             // create an AdditionalInfo object with budget as null
-            $car = new AdditionalInfo($stock,$make,$model,$year,"Inventoried",$updatedBy,$notes,null);
+            $car = new Additional_Info($stock,$make,$model,$year,"Inventoried",$updatedBy,$notes,null);
         } else if (isset($notes) && !isset($budget)) {
-            $car = new AdditionalInfo($stock,$make,$model,$year,"Inventoried",$updatedBy,null,$budget);
+            $car = new Additional_Info($stock,$make,$model,$year,"Inventoried",$updatedBy,null,$budget);
         } else if (isset($budget) && isset($notes)) {
             // create an AdditionalInfo object with all parameters
-            $car = new AdditionalInfo($stock,$make,$model,$year,"Inventoried",$updatedBy,$notes,$budget);
+            $car = new Additional_Info($stock,$make,$model,$year,"Inventoried",$updatedBy,$notes,$budget);
         } else {
             // create a CarInfo object (default)
-            $default = new CarInfo($stock,$make,$model,$year,"Inventoried",$updatedBy);
+            $default = new Car_Info($stock,$make,$model,$year,"Inventoried",$updatedBy);
 
             // send to db
             $success = addDefaultInfo($default->getStock(), $default->getMake(), $default->getModel(),

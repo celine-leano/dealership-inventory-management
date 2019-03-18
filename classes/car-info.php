@@ -8,7 +8,7 @@
  *
  * File: 328/final-project/classes/car-info.php
  */
-class CarInfo
+class Parent_CarInfo
 {
     //fields
     private $_stock;
@@ -21,27 +21,27 @@ class CarInfo
     /**
      * Car constructor
      *
-     * @param $_stock
-     * @param $_make
-     * @param $_model
-     * @param $_year
-     * @param $_status
-     * @param $_updatedBy
+     * @param int $stock Stock number of the car
+     * @param string $make The car's make
+     * @param string $model The car's model
+     * @param int $year The car's year
+     * @param string $status Most recently completed status
+     * @param string $updatedBy Employee or department who/that updated the info
      */
-    public function __construct($_stock, $_make, $_model, $_year, $_status, $_updatedBy)
+    public function __construct($stock, $make, $model, $year, $status, $updatedBy)
     {
-        $this->_stock = $_stock;
-        $this->_make = $_make;
-        $this->_model = $_model;
-        $this->_year = $_year;
-        $this->_status = $_status;
-        $this->_updatedBy = $_updatedBy;
+        $this->_stock = $stock;
+        $this->_make = $make;
+        $this->_model = $model;
+        $this->_year = $year;
+        $this->_status = $status;
+        $this->_updatedBy = $updatedBy;
     }
 
     /**
      * Gets stock number
      *
-     * @return mixed
+     * @return int gets the stock number
      */
     public function getStock()
     {
@@ -51,20 +51,57 @@ class CarInfo
     /**
      * Sets stock number
      *
-     * @param mixed $stock
-     *
-     * @return CarInfo
+     * @param int $stock stock number
      */
     public function setStock($stock)
     {
         $this->_stock = $stock;
-        return $this;
+    }
+
+    /**
+     * Gets make of car
+     *
+     * @return string returns the make of the car
+     */
+    public function getMake()
+    {
+        return $this->_make;
+    }
+
+    /**
+     * Sets make of car
+     *
+     * @param string $make the make of the car
+     */
+    public function setMake($make)
+    {
+        $this->_make = $make;
+    }
+
+    /**
+     * Gets car model
+     *
+     * @return string returns the model of the car
+     */
+    public function getModel()
+    {
+        return $this->_model;
+    }
+
+    /**
+     * Sets car model
+     *
+     * @param string $model the model of the car
+     */
+    public function setModel($model)
+    {
+        $this->_model = $model;
     }
 
     /**
      * Gets year
      *
-     * @return mixed
+     * @return int returns the year of the car
      */
     public function getYear()
     {
@@ -74,62 +111,17 @@ class CarInfo
     /**
      * Sets year
      *
-     * @param mixed $year
-     * @return CarInfo
+     * @param int $year the year of the car
      */
     public function setYear($year)
     {
         $this->_year = $year;
-        return $this;
     }
 
     /**
-     * Gets make of car.
+     * Gets car status
      *
-     * @return mixed
-     */
-    public function getMake()
-    {
-        return $this->_make;
-    }
-
-    /**
-     * Sets make of car.
-     *
-     * @param mixed $make
-     * @return CarInfo
-     */
-    public function setMake($make)
-    {
-        $this->_make = $make;
-        return $this;
-    }
-
-    /**
-     * Gets car model
-     *
-     * @return mixed
-     */
-    public function getModel()
-    {
-        return $this->_model;
-    }
-
-    /**
-     * Sets car model.
-     *
-     * @param mixed $model
-     * @return CarInfo
-     */
-    public function setModel($model)
-    {
-        $this->_model = $model;
-    }
-
-    /**
-     * Gets car status.
-     *
-     * @return mixed
+     * @return string return the status
      */
     public function getStatus()
     {
@@ -137,21 +129,19 @@ class CarInfo
     }
 
     /**
-     * Sets car status.
+     * Sets car status
      *
-     * @param mixed $status
-     * @return CarInfo
+     * @param string $status the status the car is in
      */
     public function setStatus($status)
     {
         $this->_status = $status;
-        return $this;
     }
 
     /**
      * Gets the employee / department
      *
-     * @return mixed
+     * @return string the employee / department name
      */
     public function getUpdatedBy()
     {
@@ -161,7 +151,7 @@ class CarInfo
     /**
      * Sets the employee / department
      *
-     * @param mixed $updatedBy
+     * @param string $updatedBy the employee / department name
      */
     public function setUpdatedBy($updatedBy)
     {

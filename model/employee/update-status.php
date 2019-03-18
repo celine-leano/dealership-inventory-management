@@ -2,7 +2,7 @@
     /**
      * Celine Leano and Adolfo Gonzalez
      * 3/13/2019
-     * 328/final-project/model/employee-update-status.php
+     * 328/final-project/model/update-status.php
      * Creates an array of departments that the vehicle has yet to go through
      * and validates form
      */
@@ -68,14 +68,14 @@
 
             if (!empty($_POST['notes'])) {
                 // create an AdditionalInfo object
-                $car = new AdditionalInfo($stockNum,$make,$model,$year,$status,$updatedBy,$notes,$budget);
+                $car = new Additional_Info($stockNum,$make,$model,$year,$status,$updatedBy,$notes,$budget);
 
                 //insert into database
                 $success = addAdditionalInfo($car->getStock(), $car->getMake(), $car->getModel(),
                     $car->getYear(), $car->getStatus(), $car->getUpdatedBy(), $car->getNotes(), $car->getBudget());
             } else {
                 // create a CarInfo object
-                $car = new CarInfo($stockNum,$make,$model,$year,$status,$updatedBy);
+                $car = new Car_Info($stockNum,$make,$model,$year,$status,$updatedBy);
 
                 // insert into database
                 $success = addDefaultInfo($car->getStock(), $car->getMake(), $car->getModel(),

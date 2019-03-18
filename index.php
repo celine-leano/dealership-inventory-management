@@ -12,7 +12,7 @@ ini_set('display_errors', 3);
 error_reporting(E_ALL);
 // require autoload
 require_once('vendor/autoload.php');
-require('model/database.php');
+require('model/database/database.php');
 //connect to db
 $dbh = connect();
 if (!$dbh) { //don't go any further if we can't connect to the database
@@ -40,7 +40,7 @@ $f3->route('GET|POST /login', function ($f3) {
     //set title
     $f3->set("title", "Employee Login");
     // validate login credentials
-    require("model/employee-login-validation.php");
+    require("model/employee/login-validation.php");
     //template variable
     $template = new Template();
     echo $template->render("views/login.html");
@@ -51,7 +51,7 @@ $f3->route('GET|POST /employee/stock', function ($f3) {
     $f3->set("title", "Enter Stock Number");
     // clear the session
     $_SESSION['stock'] = null;
-    require("model/employee-stock-validation.php");
+    require("model/employee/stock-validation.php");
     $template = new Template();
     echo $template->render("views/stock.html");
 });
@@ -74,7 +74,7 @@ $f3->route('GET|POST /employee/update-status', function ($f3) {
     $stock = $_SESSION['stock'];
     $f3->set("stock", $stock);
     // get 'to do' list and validate update form
-    require('model/employee-update-status.php');
+    require('model/employee/update-status.php');
     $template = new Template();
     echo $template->render('views/update-status.html');
 });
@@ -101,7 +101,7 @@ $f3->route('GET|POST /admin', function ($f3) {
     //set title
     $f3->set("title", "Admin Login");
     //admin validation
-    require 'model/admin-login-validation.php';
+    require 'model/admin/login-validation.php';
     //new template
     $template = new Template();
     echo $template->render("views/admin-login.html");
@@ -120,7 +120,7 @@ $f3->route('GET|POST /admin/add', function ($f3) {
     //set title
     $f3->set("title", "Admin - Add a Vehicle");
     //add car function
-    require 'model/add-car.php';
+    require 'model/admin/add-car.php';
     //new template
     $template = new Template();
     echo $template->render("views/admin-add.html");

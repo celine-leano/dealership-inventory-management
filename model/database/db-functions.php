@@ -4,46 +4,17 @@
  * 2/10/2019
  * 328/final-project/db-functions.php
  * Fat-Free Routing
- *
- *
- * This function validates admin login.
- *
- * @param $username
- * @param $password
- *
- * @return mixed
  */
-function adminLogin($username, $password)
-{
-    global $dbh;
-    //1. Define query
-    $sql = "SELECT * FROM logins WHERE username = '$username' and password = '$password'";
-    //2. Prepare statement
-    $statement = $dbh->prepare($sql);
-    //execute
-    $statement->execute();
-    //fetch password
-    $result = $statement->fetchColumn(1);
-    //compare results and return true if match
-    if ($result === $password) {
-        return TRUE;
-    }
-
-
-    //return false if password not a match
-    return FALSE;
-}
-
 
 /**
- * This function validates employee login.
+ * Queries login information to the server and brings back what it finds
  *
  * @param $username
  * @param $password
  *
  * @return mixed
  */
-function employeeLogin($username, $password)
+function login($username, $password)
 {
     global $dbh;
     $sql = "SELECT * FROM logins WHERE username = '$username'
@@ -51,7 +22,6 @@ function employeeLogin($username, $password)
     $statement = $dbh->prepare($sql);
     $statement->execute();
     $result = $statement->fetch(PDO::FETCH_ASSOC);
-
 
     return $result;
 }
@@ -77,7 +47,6 @@ function searchStockNum($stock)
     $statement->execute();
     $result = $statement->fetch();
 
-
     return $result;
 }
 
@@ -96,7 +65,6 @@ function getHistory($stock)
     $statement = $dbh->prepare($sql);
     $statement->execute();
     $results = $statement->fetchAll();
-
 
     return $results;
 }
