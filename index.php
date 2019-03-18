@@ -158,10 +158,30 @@ $f3->route('GET|POST /admin/add-success', function ($f3) {
     echo $template->render("views/admin/car-added.html");
 });
 
-// define route to admin add car
+// define route for admin to search for a car by it's stock number
+$f3->route('GET|POST /admin/search-by-stock', function ($f3) {
+    require 'model/check-for-login.php';
+    $f3->set("title", "Admin - Search by Stock");
+
+    require 'model/admin/stock-validation.php';
+
+    $template = new Template();
+    echo $template->render("views/admin/stock.html");
+});
+
+// define route to remove a vehicle
 $f3->route('GET|POST /admin/remove', function ($f3) {
     require 'model/check-for-login.php';
     $f3->set("title", "Admin - Remove a Vehicle");
+
+    $stockNum = $_SESSION['stockNum'];
+    $history = getHistory($stockNum);
+    $f3->set("history", $history);
+
+    $car = $_SESSION['car'];
+    $f3->set("car", $car);
+
+    require 'model/admin/remove-validation.php';
 
     $template = new Template();
     echo $template->render("views/admin/remove.html");
