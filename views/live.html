@@ -21,12 +21,7 @@ Live Board to be viewed on TV screens and/or monitors
 		</thead>
 		<tbody>
 			<repeat group="{{ @cars }}" value="{{ @car }}">
-				<check if="{{ @car['status'] == 'Ready For Sale' }}">
-					<tr class="bg-warning">
-				</check>
-				<check if="{{ @car['status'] != 'Ready For Sale' }}">
-					<tr>
-				</check>
+				<tr>
 				<th scope="row">{{ @car['stock'] }}</th>
 				<td>{{ @car['year'] }}</td>
 				<td class="text-uppercase">{{ @car['make'] }}</td>
@@ -38,7 +33,9 @@ Live Board to be viewed on TV screens and/or monitors
 			</repeat>
 		</tbody>
 	</table>
-
+	<a href="#" target="_self" id="print" class="float-right pr-1">Print</a>
 </body>
 
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="javascript/print.js"></script>
 <script src="javascript/refresh-board.js"></script>

@@ -14,10 +14,11 @@ View to input stock number after logging in
                 <div class="card-header bg-light shadow-sm">
                     <a href="../logout">&lt;&lt; Logout</a>
                 </div>
+
                 <div class="card-body p-4">
                     <div class="bg-light border rounded p-2 text-center mx-auto shadow-sm">
                         <h5 class="text-uppercase pt-3">STATUS INFORMATION FOR</h5>
-                        <h2>{{ @car['year'] }} {{ @car['make'] }}
+                        <h2 class="text-uppercase">{{ @car['year'] }} {{ @car['make'] }}
                             {{ @car['model'] }}
                         </h2>
                         <p>Stock Number: {{ @car['stock'] }}</p>
@@ -84,11 +85,15 @@ View to input stock number after logging in
                             Vehicle
                         </a>
                     </div>
+                    <!-- print -->
+                    <br>
+                    <a href="#" target="_self" id="print" class="small float-right">Print</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="../javascript/print.js"></script>
 </html>
