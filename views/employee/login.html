@@ -10,8 +10,8 @@ Employee login screen
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
-				<div class="card my-5">
-					<div class="card-header bg-light">
+				<div class="card my-5 shadow-sm">
+					<div class="card-header bg-light shadow-sm">
 						<a href="../final-project">&lt;&lt; Back</a>
 					</div>
 					<div class="card-body p-4">
@@ -26,13 +26,13 @@ Employee login screen
 							<div class="form-label-group">
 								<label for="username" class="col-form-label">Username</label>
 								<input id="username" name="username" class="form-control"
-										value="{{ @username }}" autofocus>
+										value="{{ @username }}" autofocus required>
 							</div>
 							
 							<div class="form-label-group">
 								<label for="password" class="col-form-label">Password</label>
 								<input type="password" id="password" name="password"
-										class="form-control">
+										class="form-control" required>
 							</div>
 							<input type="submit" id="submit" value="Login" class="btn btn-lg
                         btn-primary btn-block text-uppercase mt-4">

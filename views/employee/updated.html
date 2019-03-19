@@ -9,16 +9,19 @@ Employee login screen
 
 <div class="container">
     <div class="row align-items-center">
-        <div class="col-sm-9 col-lg-6 mx-auto">
-            <div class="card my-5">
-                <div class="card-header bg-light">
+        <div class="col-sm-9 col-lg-8 mx-auto">
+            <div class="card my-5 shadow-sm">
+                <div class="card-header bg-light shadow-sm">
                     <a href="../logout">&lt;&lt; Logout</a>
                 </div>
                 <div class="card-body p-4">
-                    <h5 class="card-title text-center text-uppercase">NEW STATUS FOR</h5>
-                    <h2 class="card-title text-center">{{ @car['year'] }} {{ @car['make'] }}
-                        {{ @car['model'] }}
-                    </h2>
+                    <div class="bg-light border rounded p-2 text-center mx-auto shadow-sm">
+                        <h5 class="text-uppercase pt-3">NEW STATUS FOR</h5>
+                        <h2>{{ @car['year'] }} {{ @car['make'] }}
+                            {{ @car['model'] }}
+                        </h2>
+                        <p>Stock Number: {{ @car['stock'] }}</p>
+                    </div>
 
                     <hr>
 

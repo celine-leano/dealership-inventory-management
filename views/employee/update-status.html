@@ -9,17 +9,20 @@ View to input stock number after logging in
 	
 	<div class="container">
 		<div class="row align-items-center">
-			<div class="col-sm-9 col-lg-6 mx-auto">
-				<div class="card my-5">
-					<div class="card-header bg-light">
+			<div class="col-sm-9 col-lg-8 mx-auto">
+				<div class="card my-5 shadow-sm">
+					<div class="card-header bg-light shadow-sm">
 						<a href="../logout">&lt;&lt; Logout</a>
 					</div>
 					<div class="card-body p-4">
-						<h5 class="card-title text-center text-uppercase">UPDATE STATUS FOR</h5>
-						<h2 class="card-title text-center">{{ @car['year'] }} {{ @car['make'] }}
-							{{ @car['model'] }}
-						</h2>
-						
+						<div class="bg-light border rounded p-2 text-center mx-auto shadow-sm">
+							<h5 class="text-uppercase pt-3">STATUS INFORMATION FOR</h5>
+							<h2 class="text-uppercase">{{ @car['year'] }} {{ @car['make'] }}
+								{{ @car['model'] }}
+							</h2>
+							<p>Stock Number: {{ @car['stock'] }}</p>
+						</div>
+
 						<hr>
 						<div class="text-center">
 							<b class="text-primary">{{ @car['status'] }}</b>
@@ -27,86 +30,7 @@ View to input stock number after logging in
 							<br>
 						</div>
 
-						<div class="progress">
-							<check if="{{ @car['status'] == 'Inventoried' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 10%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Inspection' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 15%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Service' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 20%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Paint' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 25%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Reconditioning' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 30%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Waiting For Parts' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 40%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Detail' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 50%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Photo Area' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 60%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Ready For Sale' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 70%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Sales' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 85%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Wash' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 90%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Sold' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 100%"></div>
-							</check>
-							<check if="{{ @car['status'] == 'Wholesale' }}">
-								<div class="progress-bar progress-bar-striped progress-bar-animated"
-									 role="progressbar"
-									 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-									 style="width: 100%"></div>
-							</check>
-						</div>
+						<include href="views/progress-bar.html"></include>
 						<hr>
 
 						<!-- error message -->
@@ -118,65 +42,67 @@ View to input stock number after logging in
 
 						<div class="row">
 							<check if="{{ @stock['status'] == 'Sold' }}">
-								<div class="text-center">
-									This vehicle has been marked as sold. Please login as an admin to
-									remove the vehicle from the inventory list.
-								</div>
-							</check>
-							
-							<check if="{{ @stock['status'] != 'Sold' }}">
-								<div class="col-5">
-									<h5>To Do</h5>
-									
-									<ul class="list-group list-group-flush">
-										<repeat group="{{ @remaining }}" value="{{ @department }}">
-											<li class="list-group-item p-0">{{ @department }}</li>
-										</repeat>
-									</ul>
-								</div>
-								
-								<div class="col-7">
-									<h5>Update Status</h5>
+								<true>
+									<div class="text-center">
+										This vehicle has been marked as sold. Please login as an admin to
+										remove the vehicle from the inventory list.
+									</div>
+								</true>
 
-									<p class="small">Note: Steps are in order of when they should be completed, however,
-									steps may be skipped if it is unnecessary for the current vehicle.</p>
-									<hr>
-									
-									<form method="post" action="#">
-										<div class="form-label-group">
-											<label class="col-form-label">Completed</label>
+								<false>
+									<div class="col-4">
+										<h5>To Do</h5>
+
+										<ul class="list-group list-group-flush">
+											<repeat group="{{ @remaining }}" value="{{ @department }}">
+												<li class="list-group-item p-0">{{ @department }}</li>
+											</repeat>
+										</ul>
+									</div>
+
+									<div class="col-8">
+										<h5>Update Status</h5>
+
+										<p class="small">Note: Steps are in order of when they should be completed, however,
+											steps may be skipped if it is unnecessary for the current vehicle.</p>
+										<hr>
+
+										<form method="post" action="#">
+											<div class="form-label-group">
+												<label class="col-form-label">Completed</label>
+												<br>
+												<select name="status" class="form-control">
+													<option>- Select -</option>
+													<repeat group="{{ @remaining }}"
+															value="{{ @department }}">
+														<option name="{{ @department }}">{{ @department }}</option>
+													</repeat>
+												</select>
+											</div>
+
+											<div class="form-label-group">
+												<label class="col-form-label">Name / Department</label>
+												<input type="text" id="employee" name="employee"
+													   class="form-control" value="{{ @employee }}">
+											</div>
+
+											<div class="form-label-group">
+												<input type="checkbox" name="info">&nbsp;Additional Info
+											</div>
+
+											<div name="additional" id="additional"
+												 class="form-label-group">
+												<label class="col-form-label">Notes</label>
+												<input type="text" id="notes" name="notes"
+													   class="form-control">
+											</div>
+
 											<br>
-											<select name="status" class="form-control">
-												<option>- Select -</option>
-												<repeat group="{{ @remaining }}"
-														value="{{ @department }}">
-													<option name="{{ @department }}">{{ @department }}</option>
-												</repeat>
-											</select>
-										</div>
-										
-										<div class="form-label-group">
-											<label class="col-form-label">Name / Department</label>
-											<input type="text" id="employee" name="employee"
-													class="form-control" value="{{ @employee }}">
-										</div>
-										
-										<div class="form-label-group">
-											<input type="checkbox" name="info">&nbsp;Additional Info
-										</div>
-										
-										<div name="additional" id="additional"
-												class="form-label-group">
-											<label class="col-form-label">Notes</label>
-											<input type="text" id="notes" name="notes"
-													class="form-control">
-										</div>
-										
-										<br>
-										<input type="submit" name="submit" value="Update"
-												class="btn btn-primary float-right">
-									</form>
-								</div>
+											<input type="submit" name="submit" value="Update"
+												   class="btn btn-primary float-right">
+										</form>
+									</div>
+								</false>
 							</check>
 						</div>
 						

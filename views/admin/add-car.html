@@ -6,10 +6,10 @@ Admin Add Tool - adds a new car to the dealership roster
 -->
 <include href="views/head.html"></include>
 
-<body class="bg-light m-auto pt-4">
+<body class="bg-light m-auto p-4">
 <div class="container col-sm-9 col-lg-6 border bg-white">
-    <div class="row card">
-        <div class="card-header">
+    <div class="row card shadow-sm">
+        <div class="card-header shadow-sm">
             <a href="tools">&lt;&lt; Back</a>
         </div>
         <div class="card-body">
@@ -21,31 +21,39 @@ Admin Add Tool - adds a new car to the dealership roster
                     <div class="col-md-6">
                         <div class="form-group m-2">
                             <h3>Information</h3>
-                            <br>
-                            <label class="control-label" for="stock">Stock #</label>
-                            <input type="text" class="form-control input" id="stock"
-                                   placeholder="Stock Number" name="stock" value="{{ @POST['stock'] }}">
+
+                            <div class="form-label-group">
+                                <label class="control-label" for="stock">Stock #</label>
+                                <input type="text" class="form-control input" id="stock"
+                                       placeholder="Stock Number" name="stock" value="{{ @POST['stock'] }}">
+                            </div>
                             <check if="{{ isset(@errorStock) }}">
                                 <span class="text-danger">{{ @errorStock }}</span><br>
                             </check>
 
-                            <label class="control-label" for="year">Year</label>
-                            <input type="text" class="form-control" id="year" placeholder="Year"
-                                   name="year" value="{{ @POST['year'] }}">
+                            <div class="form-label-group">
+                                <label class="control-label" for="year">Year</label>
+                                <input type="text" class="form-control" id="year" placeholder="Year"
+                                       name="year" value="{{ @POST['year'] }}">
+                            </div>
                             <check if="{{ isset(@errorYear) }}">
                                 <span class="text-danger">{{ @errorYear }}</span><br>
                             </check>
 
-                            <label class="control-label" for="make">Make</label>
-                            <input type="text" class="form-control" id="make" placeholder="Make"
-                                   name="make" value="{{ @POST['make'] }}">
+                            <div class="form-label-group">
+                                <label class="control-label" for="make">Make</label>
+                                <input type="text" class="form-control" id="make" placeholder="Make"
+                                       name="make" value="{{ @POST['make'] }}">
+                            </div>
                             <check if="{{ isset(@errorMake) }}">
                                 <span class="text-danger">{{ @errorMake }}</span><br>
                             </check>
 
-                            <label class="control-label" for="make">Model</label>
-                            <input type="text" class="form-control" id="model" placeholder="Model"
-                                   name="model" value="{{ @POST['model'] }}">
+                            <div class="form-label-group">
+                                <label class="control-label" for="make">Model</label>
+                                <input type="text" class="form-control" id="model" placeholder="Model"
+                                       name="model" value="{{ @POST['model'] }}">
+                            </div>
                             <check if="{{ isset(@errorModel) }}">
                                 <span class="text-danger">{{ @errorModel }}</span><br>
                             </check>
@@ -55,10 +63,12 @@ Admin Add Tool - adds a new car to the dealership roster
                     <div class="col-md-6">
                         <div class="form-group m-2">
                             <h3>Updated By</h3>
-                            <br>
-                            <label class="control-label" for="name">Employee Name / Department</label>
-                            <input type="text" class="form-control" id="name"
-                                   placeholder="Employee Name" name="name" value="{{ @POST['name'] }}">
+
+                            <div class="form-label-group">
+                                <label class="control-label" for="name">Employee Name / Department</label>
+                                <input type="text" class="form-control" id="name"
+                                       placeholder="Name or Department" name="name" value="{{ @POST['name'] }}">
+                            </div>
                             <check if="{{ isset(@errorName) }}">
                                 <span class="text-danger">{{ @errorName }}</span><br>
                             </check>
@@ -82,7 +92,7 @@ Admin Add Tool - adds a new car to the dealership roster
 
                             <!-- submit form -->
                             <button type="submit"
-                                    class="btn btn-primary float-lg-right">Submit
+                                    class="btn btn-primary float-lg-right mt-1">Submit
                             </button>
 
                         </div>

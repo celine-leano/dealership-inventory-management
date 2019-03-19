@@ -10,14 +10,16 @@ Delete success screen
 <div class="container">
     <div class="row align-items-center">
         <div class="col-sm-9 col-lg-6 mx-auto">
-            <div class="card my-5">
-                <div class="card-header bg-light">
-                    <a href="../logout">&lt;&lt; Logout</a>
+            <div class="card my-5 shadow-sm">
+                <div class="card-header bg-light shadow-sm">
+                    <a href="tools">&lt;&lt; Back to Tools</a>
                 </div>
                 <div class="card-body p-4">
-                    <!-- success message -->
                     <div class="alert alert-success text-center" role="alert">
-                        Vehicle has been successfully removed for the inventory!
+                        Vehicle has been successfully removed from the inventory!
+                        <br>
+                        <div class="spinner-border spinner-border-sm"></div>
+                        Redirecting back to <b>Admin Tools</b>...
                     </div>
                 </div>
             </div>
@@ -26,4 +28,5 @@ Delete success screen
 </div>
 
 </body>
+<script src="../javascript/redirect-tools.js"></script>
 </html>

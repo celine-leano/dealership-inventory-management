@@ -13,6 +13,6 @@ if (!empty($_POST)) {
     $success = removeCar($stockNum);
 
     if ($success) {
-        $f3->reroute("admin/remove-success");
+        $f3->set("successMessage", "Vehicle has been successfully removed from the inventory!");
     }
 }

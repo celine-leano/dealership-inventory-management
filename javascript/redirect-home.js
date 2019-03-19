@@ -1,7 +1,7 @@
 /*
 Celine Leano and Adolfo Gonzalez
 3/17/2019
-328/final-project/javascript/redirect.js
+328/final-project/javascript/redirect-home.js
 Redirects user after logging out
  */
 
@@ -11,7 +11,7 @@ var redirect = "http://cleano.greenriverdev.com/328/final-project";
 function countDown(){
     if(count > 0){
         count--;
-        setTimeout("countDown()", 1000);
+        setTimeout("countDown()", 3000);
     }else{
         window.location.href = redirect;
     }
