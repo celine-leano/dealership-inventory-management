@@ -181,10 +181,18 @@ $f3->route('GET|POST /admin/remove', function ($f3) {
     $car = $_SESSION['car'];
     $f3->set("car", $car);
 
-    require 'model/admin/remove-validation.php';
+    require 'model/admin/remove-car.php';
 
     $template = new Template();
     echo $template->render("views/admin/remove.html");
+});
+
+$f3->route('GET|POST /admin/remove-success', function($f3) {
+    require 'model/check-for-login.php';
+    $f3->set("title", "Remove Successful!");
+
+    $template = new Template();
+    echo $template->render("views/admin/deleted.html");
 });
 
 // define route to logout

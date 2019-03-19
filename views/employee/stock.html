@@ -15,10 +15,11 @@ View to input stock number after logging in
 						<a href="../logout">&lt;&lt; Logout</a>
 					</div>
 					<div class="card-body p-4">
-						<h3 class="card-title text-center text-uppercase">Enter Stock #</h3>
+						<h3 class="card-title text-center text-uppercase">Vehicle Lookup</h3>
+						<p class="text-center">Search for a vehicle to view/update using its 4-digit stock number</p>
 						<form method="post" action="#">
 							<input name="stock" class="input-group text-center" type="text"
-									maxlength="4">
+									maxlength="4" placeholder="Enter Stock Number" autofocus>
 							<check if="{{ isset(@errorStock) }}">
 								<span class="text-danger">{{ @errorStock }}</span>
 							</check>

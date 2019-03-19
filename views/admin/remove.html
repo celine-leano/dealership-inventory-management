@@ -7,7 +7,7 @@ Admin Remove Tool - removes vehicle from inventory
 <include href="views/head.html"></include>
 
 <body class="bg-light m-auto pt-4">
-<div class="container col-6 border bg-white">
+<div class="container col-sm-9 col-lg-6 border bg-white">
     <div class="row card">
         <div class="card-header">
             <a href="tools">&lt;&lt; Back</a>
@@ -160,9 +160,39 @@ Admin Remove Tool - removes vehicle from inventory
                         <hr>
 
                         <div class="text-center">
-                            <form method="post" action="#">
-                                <input type="submit" name="submit" value="Delete From Inventory" class="btn btn-lg btn-danger">
-                            </form>
+                            <!-- Button to Open the Modal -->
+                            <button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#myModal">
+                                Delete Vehicle From Inventory
+                            </button>
+                        </div>
+
+                        <!-- The Modal -->
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Confirmation</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Confirmation message -->
+                                    <div class="modal-body">
+                                        Are you sure you want to remove this vehicle from the inventory? Changes cannot
+                                        be reverted.
+                                    </div>
+
+                                    <!-- Confirmation buttons -->
+                                    <div class="modal-footer">
+                                        <form method="post" action="#">
+                                            <input type="submit" name="submit" class="btn btn-success" value="Accept" />
+                                        </form>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -172,4 +202,6 @@ Admin Remove Tool - removes vehicle from inventory
     </div>
 </div>
 </body>
+
+<script src="../javascript/remove-car.js"></script>
 </html>
