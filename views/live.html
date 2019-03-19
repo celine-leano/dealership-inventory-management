@@ -21,12 +21,37 @@ Live Board to be viewed on TV screens and/or monitors
 		</thead>
 		<tbody>
 			<repeat group="{{ @cars }}" value="{{ @car }}">
-				<tr>
 				<th scope="row">{{ @car['stock'] }}</th>
 				<td>{{ @car['year'] }}</td>
 				<td class="text-uppercase">{{ @car['make'] }}</td>
 				<td class="text-uppercase">{{ @car['model'] }}</td>
-				<td class="text-uppercase font-weight-bold">{{ @car['status'] }}</td>
+
+				<!-- different colors depending on certain statuses -->
+				<check if="{{ @car['status'] == 'Inspection' }}">
+					<true>
+						<td class="text-uppercase font-weight-bold text-secondary">{{ @car['status'] }}</td>
+					</true>
+				</check>
+
+				<check if="{{ @car['status'] == 'Waiting For Parts' }}">
+					<td class="text-uppercase font-weight-bold text-danger">{{ @car['status'] }}</td>
+				</check>
+
+				<check if="{{ @car['status'] == 'Ready For Sale' }}">
+					<td class="text-uppercase font-weight-bold text-warning">{{ @car['status'] }}</td>
+				</check>
+
+				<check if="{{ @car['status'] == 'Sold' }}">
+					<td class="text-uppercase font-weight-bold text-success">{{ @car['status'] }}</td>
+				</check>
+
+				<check if="{{ @car['status'] != 'Inspection' &&
+							  @car['status'] != 'Waiting For Parts' &&
+							  @car['status'] != 'Ready For Sale' &&
+							  @car['status'] != Sold }}">
+					<td class="text-uppercase font-weight-bold">{{ @car['status'] }}</td>
+				</check>
+
 				<td class="text-uppercase">{{ @car['updatedBy'] }}</td>
 				<td>{{ @car['timestamp'] }}</td>
 				</tr>
