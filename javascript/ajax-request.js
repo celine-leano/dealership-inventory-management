@@ -1,6 +1,6 @@
 /*
 Celine Leano and Adolfo Gonzalez
-3/13/2019
+3/20/2019
 328/final-project/javascript/ajax-request.js
 Ajax Request
  */
@@ -8,21 +8,19 @@ Ajax Request
 //this function checks to see if we have a valid stock number
 $(document).ready(function(){
     $('#stock').blur(function(){
-
         var stock = $(this).val();
 
-        $.ajax({
-            url:'/model/database/db-functions.php',
-            method:"POST",
-            data:{stock:stock},
-            success:function(data)
+        $.post(
+            '../check-stock',
+            {stock: stock},
+            function(result)
             {
-                if(data == '0')
+                //if it is a valid user submit the form
+                if(result == "success")
                 {
-                    $('#display').html('<span class="text-danger">Invalid Stock Number</span>');
+                    $("#invalid-stock").html("Stock number already exists");
                 }
-            }
-        })
+            });
 
     });
 });

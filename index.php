@@ -205,5 +205,12 @@ $f3->route('GET|POST /logout', function ($f3) {
     echo $template->render("views/logout.html");
 });
 
+// define route to check stock number in real time
+$f3->route('GET|POST /check-stock', function ($f3) {
+    $f3->set("title", "");
+    $template = new Template();
+    echo $template->render("model/admin/check-stock.php");
+});
+
 // run fat free
 $f3->run();

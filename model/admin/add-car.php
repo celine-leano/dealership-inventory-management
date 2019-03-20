@@ -25,11 +25,11 @@ if (!empty($_POST)) {
         }
 
         if (!is_numeric($stock)) {
-            $f3->set("errorStock", "Only use numbers for stock.");
+            $f3->set("errorStock", "Stock number should only consist of numbers");
             $isValid = FALSE;
         } else if (strlen($stock) != 4) {
             // check if input is 4 numbers
-            $f3->set("errorStock", "Stock is a 4 digit number");
+            $f3->set("errorStock", "Stock number should be a 4-digit number");
             $isValid = FALSE;
         }
     } else {
