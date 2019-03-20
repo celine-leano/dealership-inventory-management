@@ -27,7 +27,7 @@ Admin Add Tool - adds a new car to the dealership roster
                                 <input type="text" class="form-control input" id="stock"
                                        placeholder="Stock Number" name="stock" maxlength="4" value="{{ @POST['stock'] }}">
                             </div>
-                            <div id="invalid-stock" class="text-danger"></div>
+                            <div id="invalid-stock"></div>
                             <check if="{{ isset(@errorStock) }}">
                                 <span class="text-danger">{{ @errorStock }}</span><br>
                             </check>

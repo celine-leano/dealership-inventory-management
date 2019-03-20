@@ -18,7 +18,13 @@ $(document).ready(function(){
                 //if it is a valid user submit the form
                 if(result == "success")
                 {
+                    $("#invalid-stock").removeClass("text-success");
+                    $("#invalid-stock").addClass("text-danger");
                     $("#invalid-stock").html("Stock number already exists");
+                } else {
+                    $("#invalid-stock").removeClass("text-danger");
+                    $("#invalid-stock").addClass("text-success");
+                    $("#invalid-stock").html("Stock number is available");
                 }
             });
 
