@@ -9,13 +9,13 @@ Routes all URLs and leverages a templating language using the Fat-Free framework
 - index.php
 
 Has a clearly defined database layer using PDO and prepared statements.
-- model/...
+- model/database/
 
 Data can be viewed, added, updated, and deleted.
-- View: live.html, admin/remove.html, employee/vehicle-info.html
-- Add: admin/add-car.html
-- Updated: employee/update-status.html
-- Deleted: admin/remove.html
+- View: live.html, views/admin/remove.html, views/employee/vehicle-info.html
+- Add: views/admin/add-car.html
+- Updated: views/employee/update-status.html
+- Deleted: views/admin/remove.html
 
 Has a history of commits from both team members to a Git repository.
 - You're here!
@@ -31,3 +31,4 @@ Has full validation on the client side through JavaScript and server side throug
 
 Incorporates jQuery and Ajax.
 - javascript/additional-info.js
+- javascript/ajax-request.js
