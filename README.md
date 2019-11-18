@@ -1,4 +1,4 @@
-# final-project
+# dealership-inventory-management
 Dealership Inventory Management System
 --------------------------------------
 
